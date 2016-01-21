@@ -6,18 +6,18 @@ head
   meta(name="viewport", content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1.0")
   meta(name="description", content= description)
   link(rel="stylesheet", href="css/#{name}.min.css")
-  link(rel="stylesheet", href="css/dev.min.css")
+  link(rel="stylesheet", href="css/theme.min.css")
 body
   .masonry-layout
     - var n = 0
-    - var sizes = ['xs', 's', 'm', 'l']
     - var nestedSizes = ['small', 'medium', 'large']
+    - var colors = ['red', 'green', 'blue', 'purple']
     while n < 10
       - var type = Math.floor(Math.random() * 4 + 1)
       - var nested = Math.floor(Math.random() * 3 + 1)
       - var nestedClass = 'masonry-layout__panel'
       - var horizontalClass = ''
-      - var sizeClass = sizes[type - 1]
+      - var sizeClass = ''
       if nested === 1
         - nestedClass = 'is--cluster'
         - horizontalClass = 'is--vertical'
@@ -29,11 +29,16 @@ body
       .masonry-layout__panel(class="#{sizeClass} #{nestedClass} #{horizontalClass}")
         if nested === 1
           .masonry-layout__panel.full-size
-            .masonry-layout__panel-content
-          .masonry-layout__panel.half-size
-            .masonry-layout__panel-content
-          .masonry-layout__panel.half-size
-            .masonry-layout__panel-content
+            .masonry-layout__panel-content.bg--green
+          .masonry-layout__panel.quarter-size
+            .masonry-layout__panel-content.bg--blue
+          .masonry-layout__panel
+            .masonry-layout__panel-content.bg--red
         else
-          .masonry-layout__panel-content
+          - var paras = Math.floor(Math.random() * 4 + 1)
+          .masonry-layout__panel-content(class="bg--#{colors[paras - 1]}")
+            - var p = 0
+            while p < paras
+              p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non varius nunc, nec viverra dolor. Sed porttitor urna non accumsan vehicula. Morbi malesuada mollis lacus.
+              - p++
         - n++
