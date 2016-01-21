@@ -1,0 +1,68 @@
+.masonry-layout__panel.is--cluster img
+  @media(min-width: 768px)
+    height 100%
+  width  100%
+
+img
+  max-width 100%
+
+.masonry-layout__panel-content
+  border-radius 10px
+  overflow      hidden
+  padding       10px
+
+.image-holder .masonry-layout__panel-content
+  padding 0
+
+.masonry-layout__panel
+  &.is--flipper
+    .masonry-layout__panel-content
+      position relative
+      overflow visible
+
+    .masonry-layout__panel-content-front
+    .masonry-layout__panel-content-back
+      height 100%
+      width 100%
+      position absolute
+      overflow hidden
+      border-radius 10px
+      top 0
+      left 0
+      backface-visibility hidden
+      img
+        height 100%
+        width  100%
+
+    .masonry-layout__panel-content-front
+      z-index 2
+      transform rotateY(0deg)
+
+    .masonry-layout__panel-content-back
+      background-color red
+      transform rotateY(180deg)
+
+.masonry-layout__panel.is--flipper
+  perspective 1000
+
+.masonry-layout__panel.is--flipper .masonry-layout__panel-content
+  transform-style preserve-3d
+  transition .25s
+
+.masonry-layout__panel.is--flipper:hover .masonry-layout__panel-content
+  transform rotateY(180deg)
+
+.tx--white
+  color white
+
+.bg--red
+  background-color red
+
+.bg--green
+  background-color green
+
+.bg--purple
+  background-color purple
+
+.bg--blue
+  background-color blue

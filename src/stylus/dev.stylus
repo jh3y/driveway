@@ -1,0 +1,31 @@
+.masonry-layout__panel-content
+  height        100%
+  width         100%
+  border-radius 10px
+
+.xs
+  height 150px
+
+.xs .masonry-layout__panel-content
+  background-color red
+
+.s
+  height 275px
+
+.small .masonry-layout__panel-content,
+.s .masonry-layout__panel-content
+  background-color blue
+
+.m
+  height 350px
+
+.medium .masonry-layout__panel-content,
+.m .masonry-layout__panel-content
+  background-color green
+
+.l
+  height 400px
+
+.large .masonry-layout__panel-content,
+.l .masonry-layout__panel-content
+  background-color purple
