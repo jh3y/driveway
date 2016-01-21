@@ -9,22 +9,19 @@ head
   link(rel="stylesheet", href="css/theme.min.css")
 body
   .masonry-layout
-    .masonry-layout__panel.image-holder.is--flipper
-      .masonry-layout__panel-content(style="height: 300px;")
-        .masonry-layout__panel-content-front
-          img(src="img/photo-1.jpg")
+    .masonry-layout__panel.flipper.medium
+      .masonry-layout__panel-content
+        img.masonry-layout__panel-content-front(src="img/photo-1.jpg")
         .masonry-layout__panel-content-back
           p Here is a flipped image...
     .masonry-layout__panel
       .masonry-layout__panel-content.tx--white.bg--green
         h1 Here is a masonry layout.
     .masonry-layout__panel.is--cluster.is--horizontal.medium
-      .masonry-layout__panel.full-size.image-holder
-        .masonry-layout__panel-content
-          img(src="img/photo-2.jpg")
-      .masonry-layout__panel.image-holder.quarter-size
-        .masonry-layout__panel-content
-          img(src="img/photo-1.jpg")
+      .masonry-layout__panel.full-size
+        img.masonry-layout__panel-content(src="img/photo-2.jpg")
+      .masonry-layout__panel.quarter-size
+        img.masonry-layout__panel-content(src="img/photo-1.jpg")
       .masonry-layout__panel
         .masonry-layout__panel-content.bg--red.tx--white
           p.
@@ -33,9 +30,8 @@ body
       .masonry-layout__panel-content.tx--white.bg--purple
         h3 That's pretty cool, thanks for showing me.
     .masonry-layout__panel.is--cluster.is--vertical.large
-      .masonry-layout__panel.image-holder.full-size
-        .masonry-layout__panel-content
-          img(src="img/photo-2.jpg")
+      .masonry-layout__panel.full-size
+        img.masonry-layout__panel-content(src="img/photo-2.jpg")
       .masonry-layout__panel.quarter-size
         .masonry-layout__panel-content.bg--blue.tx--white
           p.
@@ -52,6 +48,5 @@ body
         h2 Some post about something
         p.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu justo ex. Praesent mollis augue sagittis eros pharetra feugiat. Phasellus dignissim est lacus. Sed nec imperdiet dolor, sit amet mattis ex. Sed sed augue eu neque tristique commodo. Mauris aliquet tortor sollicitudin nibh molestie, id egestas nisl sollicitudin. Aliquam erat volutpat. Donec quis ultrices ligula. Cras sed purus risus. Curabitur quis eros eu tortor semper eleifend.
-    .masonry-layout__panel.image-holder
-      .masonry-layout__panel-content
-        img(src="img/photo-1.jpg")
+    .masonry-layout__panel
+      img.masonry-layout__panel-content(src="img/photo-1.jpg")

@@ -1,10 +1,7 @@
 /**
-  * Driveway.css 480 768 992 1200
+  * driveway
 */
 $panelGap      = 5px
-
-*
-  box-sizing border-box
 
 .masonry-layout
   column-count 1
@@ -18,28 +15,39 @@ $panelGap      = 5px
   @media(min-width: 768px)
     break-inside avoid
 
-  padding      $panelGap
+  padding 5px
 
   .masonry-layout__panel-content
     width 100%
 
+  &.small
+    height 200px
+
+  &.medium
+    height 300px
+
+  &.large
+    height 400px
+
   &.is--cluster
     padding 0
-    &.small
-    &.medium
-    &.large
-      height   auto
-      overflow hidden
+    @media(max-width: 768px)
+      &.small
+      &.medium
+      &.large
+        height   auto
+        overflow hidden
 
     display        flex
     flex-direction row
     flex-wrap      wrap
 
     .masonry-layout__panel
-      display flex
-      flex 0 0 100%
+      display block
       height auto
+      width  100%
       @media(min-width: 768px)
+        display flex
         flex    1
         &.full-size
           flex   0 0 100%
@@ -59,21 +67,9 @@ $panelGap      = 5px
         flex-direction column
       .masonry-layout__panel
         @media(min-width: 768px)
-          /* Cluster columns should be 100 / 2% or similar */
           width 50%
 
     &.is--horizontal
       .masonry-layout__panel
         @media(min-width: 768px)
-          /* Cluster rows should be 100 / 2% etc... */
           height 50%
-
-    @media(min-width: 768px)
-      &.small
-        height 200px
-
-      &.medium
-        height 300px
-
-      &.large
-        height 400px
