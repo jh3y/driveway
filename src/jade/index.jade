@@ -19,14 +19,14 @@ body
       - var horizontalClass = ''
       - var sizeClass = sizes[type - 1]
       if nested === 1
-        - nestedClass = 'masonry-layout__cluster'
+        - nestedClass = 'is--cluster'
         - horizontalClass = 'is--vertical'
         - var isHorizontal = Math.floor(Math.random() * 2 + 1)
         - var nestingSize  = Math.floor(Math.random() * 3 + 1)
         - sizeClass = nestedSizes[nestingSize - 1]
         if isHorizontal === 1
           - horizontalClass = 'is--horizontal'
-      div(class="#{sizeClass} #{nestedClass} #{horizontalClass}")
+      .masonry-layout__panel(class="#{sizeClass} #{nestedClass} #{horizontalClass}")
         if nested === 1
           .masonry-layout__panel.full-size
             .masonry-layout__panel-content
