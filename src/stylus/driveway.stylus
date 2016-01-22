@@ -30,25 +30,25 @@ $panelGap      = 5px
     height 400px
 
   &.is--cluster
-    padding 0
+    display        flex
+    padding        0
+    flex-wrap      wrap
+    flex-direction row
     @media(max-width: 768px)
       &.small
       &.medium
       &.large
-        height   auto
         overflow hidden
+        height   auto
 
-    display        flex
-    flex-direction row
-    flex-wrap      wrap
 
     .masonry-layout__panel
       display block
-      height auto
-      width  100%
+      width   100%
+      height  auto
       @media(min-width: 768px)
-        display flex
         flex    1
+        display flex
         &.full-size
           flex   0 0 100%
           width  100%
