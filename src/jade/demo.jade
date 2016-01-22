@@ -9,34 +9,34 @@ head
   link(rel="stylesheet", href="css/theme.min.css")
 body
   .masonry-layout
-    .masonry-layout__panel.flipper.medium
-      .masonry-layout__panel-content
-        img.masonry-layout__panel-content-front(src="img/photo-1.jpg")
-        .masonry-layout__panel-content-back
+    .masonry-layout__panel.masonry-layout__panel--flipper-container.masonry-layout__panel--medium
+      .masonry-layout__panel-content--flipper
+        img.masonry-layout__panel-content--img.masonry-layout__panel-content--front(src="img/photo-1.jpg")
+        .masonry-layout__panel-content--back.bg--green
           p Here is a flipped image...
     .masonry-layout__panel
       .masonry-layout__panel-content.tx--white.bg--green
         h1 Here is a masonry layout.
-    .masonry-layout__panel.is--cluster.is--horizontal.medium
-      .masonry-layout__panel.full-size
-        img.masonry-layout__panel-content(src="img/photo-2.jpg")
-      .masonry-layout__panel.quarter-size
-        img.masonry-layout__panel-content(src="img/photo-1.jpg")
-      .masonry-layout__panel
+    .masonry-layout__panel.masonry-layout__panel--cluster.masonry-layout__panel--horizontal.masonry-layout__panel--medium
+      .masonry-layout__panel.masonry-layout__panel--segment.masonry-layout__panel--full-size
+        img.masonry-layout__panel-content.masonry-layout__panel-content--img(src="img/photo-2.jpg")
+      .masonry-layout__panel.masonry-layout__panel--segment.masonry-layout__panel--quarter-size
+        img.masonry-layout__panel-content.masonry-layout__panel-content--img(src="img/photo-1.jpg")
+      .masonry-layout__panel.masonry-layout__panel--segment
         .masonry-layout__panel-content.bg--red.tx--white
           p.
             Some cool pics.
     .masonry-layout__panel
       .masonry-layout__panel-content.tx--white.bg--purple
         h3 That's pretty cool, thanks for showing me.
-    .masonry-layout__panel.is--cluster.is--vertical.large
-      .masonry-layout__panel.full-size
-        img.masonry-layout__panel-content(src="img/photo-2.jpg")
-      .masonry-layout__panel.quarter-size
+    .masonry-layout__panel.masonry-layout__panel--cluster.masonry-layout__panel--vertical.masonry-layout__panel--large
+      .masonry-layout__panel.masonry-layout__panel--segment.masonry-layout__panel--full-size
+        img.masonry-layout__panel-content.masonry-layout__panel-content--img(src="img/photo-2.jpg")
+      .masonry-layout__panel.masonry-layout__panel--segment.masonry-layout__panel--quarter-size
         .masonry-layout__panel-content.bg--blue.tx--white
           p.
             This is an image, it's quite nice.
-      .masonry-layout__panel
+      .masonry-layout__panel.masonry-layout__panel--segment
         .masonry-layout__panel-content.bg--blue.tx--white
           a Click here to find out more.
     .masonry-layout__panel
@@ -49,4 +49,4 @@ body
         p.
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu justo ex. Praesent mollis augue sagittis eros pharetra feugiat. Phasellus dignissim est lacus. Sed nec imperdiet dolor, sit amet mattis ex. Sed sed augue eu neque tristique commodo. Mauris aliquet tortor sollicitudin nibh molestie, id egestas nisl sollicitudin. Aliquam erat volutpat. Donec quis ultrices ligula. Cras sed purus risus. Curabitur quis eros eu tortor semper eleifend.
     .masonry-layout__panel
-      img.masonry-layout__panel-content(src="img/photo-1.jpg")
+      img.masonry-layout__panel-content.masonry-layout__panel-content--img(src="img/photo-1.jpg")

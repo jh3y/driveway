@@ -45,11 +45,10 @@ module.exports = {
   paths: {
     base: env,
     sources: {
-      docs     : 'src/jade/*.jade',
-      markup   : 'src/jade/**/*.jade',
+      markup   : 'src/jade/*.jade',
       img      : 'src/img/**/*.*',
       overwatch: env + '**/*.{html,css}',
-      styles   : 'src/stylus/**/*.stylus'
+      styles   : 'src/stylus/**/*.styl'
     },
     destinations: {
       dist: './dist',

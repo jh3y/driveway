@@ -58,7 +58,7 @@ gulp.task('markup:lint', function() {
     .pipe(plugins.jadelint());
 });
 gulp.task('markup:compile', function() {
-  return gulp.src(src.docs)
+  return gulp.src(src.markup)
     .pipe(plugins.plumber())
     .pipe(isDeploy ? plugins.jade(): plugins.jade(opts.jade))
     .pipe(gulp.dest(dest.html));

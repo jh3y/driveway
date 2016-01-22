@@ -19,20 +19,20 @@ body
       - var horizontalClass = ''
       - var sizeClass = ''
       if nested === 1
-        - nestedClass = 'is--cluster'
-        - horizontalClass = 'is--vertical'
+        - nestedClass = 'cluster'
+        - horizontalClass = 'vertical'
         - var isHorizontal = Math.floor(Math.random() * 2 + 1)
         - var nestingSize  = Math.floor(Math.random() * 3 + 1)
         - sizeClass = nestedSizes[nestingSize - 1]
         if isHorizontal === 1
-          - horizontalClass = 'is--horizontal'
-      .masonry-layout__panel(class="#{sizeClass} #{nestedClass} #{horizontalClass}")
+          - horizontalClass = 'horizontal'
+      .masonry-layout__panel(class="masonry-layout__panel--#{sizeClass} masonry-layout__panel--#{nestedClass} masonry-layout__panel--#{horizontalClass}")
         if nested === 1
-          .masonry-layout__panel.full-size
+          .masonry-layout__panel.masonry-layout__panel--segment.masonry-layout__panel--full-size
             .masonry-layout__panel-content.bg--green
-          .masonry-layout__panel.quarter-size
+          .masonry-layout__panel.masonry-layout__panel--segment.masonry-layout__panel--quarter-size
             .masonry-layout__panel-content.bg--blue
-          .masonry-layout__panel
+          .masonry-layout__panel.masonry-layout__panel--segment
             .masonry-layout__panel-content.bg--red
         else
           - var paras = Math.floor(Math.random() * 4 + 1)
