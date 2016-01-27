@@ -1,9 +1,4 @@
-// $layoutClass  = '.masonry-layout'
-// $panelClass   = '.masonry-layout__panel'
-// $panelContent = '.masonry-layout__panel-content'
-
 $panelGap      = 5px
-
 $addFlipper  = true
 
 /**
@@ -15,21 +10,53 @@ $addFlipper  = true
 *
 */
 
-$layout           = 'masonry-layout'
-$panel            = 'panel'
-$panelContent     = 'panel-content'
+$layout           = 'ml'
+$panel            = 'pnl'
+$panelContent     = 'pnl-cntnt'
 $imagePanel       = 'img'
-$cluster          = 'cluster'
-$segment          = 'segment'
-$small            = 'small'
-$medium           = 'medium'
-$large            = 'large'
-$flipper          = 'flipper'
-$flipperContainer = 'flipper-container'
-$flipperFront     = 'front'
-$flipperBack      = 'back'
-$quarterSize      = 'quarter-size'
-$halfSize         = 'half-size'
-$fullSize         = 'full-size'
-$verticalFlow     = 'vertical'
-$horizontalFlow   = 'horizontal'
+$cluster          = 'clstr'
+$segment          = 'sgmnt'
+$small            = 'sm'
+$medium           = 'md'
+$large            = 'lg'
+$flipper          = 'flip'
+$flipperContainer = 'flip-cntnr'
+$flipperFront     = 'frnt'
+$flipperBack      = 'bck'
+$quarterSize      = 'qrt-size'
+$halfSize         = 'hlf-size'
+$fullSize         = 'fll-size'
+$verticalFlow     = 'vrt'
+$horizontalFlow   = 'hrz'
+
+$config = {
+  layout: {
+    label: 'ml'
+  },
+  panel:  {
+    label: 'ml-pnl',
+    els : {
+      content: 'cntnt'
+    },
+    mods: {
+      cluster   : 'clstr',
+      segment   : 'sgmnt',
+      small     : 'sm',
+      medium    : 'md',
+      large     : 'lg',
+      vertical  : 'vrt',
+      horizontal: 'hrz',
+      quarter   : 'qrt',
+      half      : 'hlf',
+      full      : 'fll',
+      image     : 'img'
+    }
+  },
+  flip: {
+    label: 'ml-flip',
+    els: {
+      front: 'frnt',
+      back : 'bck'
+    }
+  }
+}

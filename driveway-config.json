@@ -1,0 +1,35 @@
+{
+  "panelGap": "5px",
+  "blocks": {
+    "layout": {
+      "lbl": "ml"
+    },
+    "panel": {
+      "lbl": "ml-pnl",
+      "els": {
+        "content": "cntnt"
+      }
+    },
+    "flip": {
+      "lbl": "ml-flip",
+      "els": {
+        "front": "frnt",
+        "back": "bck"
+      }
+    }
+  },
+  "mods": {
+    "cluster": "clstr",
+    "segment": "sgmnt",
+    "small": "sm",
+    "medium": "md",
+    "large": "lg",
+    "vertical": "vrt",
+    "horizontal": "hrz",
+    "quarter": "qrt",
+    "half": "hlf",
+    "full": "fll",
+    "image": "img",
+    "flip": "flp"
+  }
+}

@@ -1,7 +1,7 @@
 {
   "name": "driveway",
-  "version": "2.0.3",
-  "description": "CSS masonry effect",
+  "version": "0.0.0",
+  "description": "pure CSS masonry layout aid",
   "devDependencies": {
     "browser-sync": "^2.5.3",
     "gulp": "^3.8.10",

@@ -3,3 +3,6 @@ public/
 node_modules/
 
 .publish/
+
+dist/bem.*
+dist/exp.*

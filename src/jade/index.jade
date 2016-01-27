@@ -8,35 +8,35 @@ head
   link(rel="stylesheet", href="css/#{name}.min.css")
   link(rel="stylesheet", href="css/theme.min.css")
 body
-  .masonry-layout
+  .ml
     - var n = 0
-    - var nestedSizes = ['small', 'medium', 'large']
+    - var nestedSizes = ['sm', 'md', 'lg']
     - var colors = ['red', 'green', 'blue', 'purple']
     while n < 10
       - var type = Math.floor(Math.random() * 4 + 1)
       - var nested = Math.floor(Math.random() * 3 + 1)
-      - var nestedClass = 'masonry-layout__panel'
+      - var nestedClass = 'ml-pnl'
       - var horizontalClass = ''
       - var sizeClass = ''
       if nested === 1
-        - nestedClass = 'cluster'
-        - horizontalClass = 'vertical'
+        - nestedClass = 'clstr'
+        - horizontalClass = 'vrt'
         - var isHorizontal = Math.floor(Math.random() * 2 + 1)
         - var nestingSize  = Math.floor(Math.random() * 3 + 1)
         - sizeClass = nestedSizes[nestingSize - 1]
         if isHorizontal === 1
-          - horizontalClass = 'horizontal'
-      .masonry-layout__panel(class="masonry-layout__panel--#{sizeClass} masonry-layout__panel--#{nestedClass} masonry-layout__panel--#{horizontalClass}")
+          - horizontalClass = 'hrz'
+      .ml-pnl(class="ml-pnl--#{sizeClass} ml-pnl--#{nestedClass} ml-pnl--#{horizontalClass}")
         if nested === 1
-          .masonry-layout__panel.masonry-layout__panel--segment.masonry-layout__panel--full-size
-            .masonry-layout__panel-content.bg--green
-          .masonry-layout__panel.masonry-layout__panel--segment.masonry-layout__panel--quarter-size
-            .masonry-layout__panel-content.bg--blue
-          .masonry-layout__panel.masonry-layout__panel--segment
-            .masonry-layout__panel-content.bg--red
+          .ml-pnl.ml-pnl--sgmnt.ml-pnl--fll
+            .ml-pnl__cntnt.bg--green
+          .ml-pnl.ml-pnl--sgmnt.ml-pnl--qrt
+            .ml-pnl__cntnt.bg--blue
+          .ml-pnl.ml-pnl--sgmnt
+            .ml-pnl__cntnt.bg--red
         else
           - var paras = Math.floor(Math.random() * 4 + 1)
-          .masonry-layout__panel-content(class="bg--#{colors[paras - 1]}")
+          .ml-pnl__cntnt(class="bg--#{colors[paras - 1]}")
             - var p = 0
             while p < paras
               p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non varius nunc, nec viverra dolor. Sed porttitor urna non accumsan vehicula. Morbi malesuada mollis lacus.
