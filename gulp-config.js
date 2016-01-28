@@ -25,7 +25,7 @@ module.exports = {
       rename: {
         'gulp-gh-pages'    : 'deploy',
         'gulp-util'        : 'gUtil',
-        'gulp-minify-css'  : 'minify',
+        'gulp-cssnano'     : 'minify',
         'gulp-autoprefixer': 'prefix'
       }
     },
@@ -48,7 +48,10 @@ module.exports = {
       markup   : 'src/jade/*.jade',
       img      : 'src/img/**/*.*',
       overwatch: env + '**/*.{html,css}',
-      styles   : 'src/stylus/**/*.styl'
+      styles   : [
+        'src/stylus/**/theme.styl',
+        'src/stylus/**/driveway.styl'
+      ]
     },
     destinations: {
       dist: './dist',

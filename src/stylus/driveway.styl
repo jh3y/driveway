@@ -5,18 +5,19 @@ c = json('../../driveway-config.json', {
   hash: true,
   leave-strings: true
 })
-$panelGap = unquote(c.panelGap)
+$blocks   = c.blocks
+$mods     = c.mods
+$panelgap = unquote(c.panelGap)
 
 /**
   * driveway.css - pure CSS masonry layouts aid.
 */
 
-.{c.blocks.layout.lbl}
+// Layout block
+.{$blocks.layout.lbl}
   box-sizing   border-box
   column-count 1
   column-gap   0
-
-.{c.blocks.layout.lbl}
 
   *
     box-sizing border-box
@@ -27,77 +28,110 @@ $panelGap = unquote(c.panelGap)
   @media(min-width: 1200px)
     column-count 3
 
-
-.{c.blocks.panel.lbl}
+// Panel block
+.{$blocks.panel.lbl}
   margin 0
-  padding $panelGap
+  padding $panelgap
 
 
-  +mod(c.mods.small)
+  +mod($mods.small)
     height 200px
 
-  +mod(c.mods.medium)
+  +mod($mods.medium)
     height 300px
 
-  +mod(c.mods.large)
+  +mod($mods.large)
     height 400px
 
-  +mod(c.mods.segment)
+  +mod($mods.segment)
     display block
-    width   100%
     height  auto
+    width   100%
 
     @media(min-width: 768px)
-      flex 1
       display flex
+      flex 1
 
   @media (min-width: 768px)
     break-inside avoid
 
-    +mod(c.mods.full)
+    +mod($mods.full)
       flex 0 0 100%
-      width 100%
       height 100%
+      width 100%
 
-    +mod(c.mods.half)
+    +mod($mods.half)
       flex 0 0 505%
-      width 50%
       height 50%
+      width 50%
 
-    +mod(c.mods.quarter)
+    +mod($mods.quarter)
       flex 0 0 25%
-      width 25%
       height 25%
+      width 25%
 
-    +mod(c.mods.vertical)
+    +mod($mods.vertical)
       flex-direction column
-      .{c.blocks.panel.lbl}--{c.mods.segment}
+      .{$blocks.panel.lbl}--{$mods.segment}
         width 50%
 
-    +mod(c.mods.horizontal)
+    +mod($mods.horizontal)
       flex-direction row
-      .{c.blocks.panel.lbl}--{c.mods.segment}
+      .{$blocks.panel.lbl}--{$mods.segment}
         height 50%
 
   @media(max-width: 768px)
-    &--{c.mods.small}
-    &--{c.mods.medium}
-    &--{c.mods.large}
+    &--{$mods.small}
+    &--{$mods.medium}
+    &--{$mods.large}
+      &:not(.{$blocks.flip.lbl})
+        height   auto
       overflow hidden
-      height   auto
 
-  +mod(c.mods.cluster)
+  +mod($mods.cluster)
     display        flex
-    padding        0
     flex-wrap      wrap
+    padding        0
 
 
-  +el(c.blocks.panel.els.content)
-    padding       10px
+  +el($blocks.panel.els.content)
     border-radius 10px
     overflow      hidden
+    padding       10px
     width         100%
 
-    +mod(c.mods.image)
+    +mod($mods.image)
       max-width 100%
       padding 0
+
+
+.{$blocks.flip.lbl}
+  perspective 1000
+
+  &:hover
+    .{$blocks.flip.lbl}__{$blocks.flip.els.content}
+      transform rotateY(180deg)
+
+  +el($blocks.flip.els.panel)
+    backface-visibility hidden
+    border-radius       10px
+    height              100%
+    left                0
+    overflow            hidden
+    position            absolute
+    top                 0
+    width               100%
+
+    +mod($mods.front)
+      transform rotateY(0deg)
+      z-index 2
+
+    +mod($mods.back)
+      transform rotateY(180deg)
+
+  +el($blocks.flip.els.content)
+    height          100%
+    overflow        visible
+    position        relative
+    transform-style preserve-3d
+    transition      .25s

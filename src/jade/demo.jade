@@ -5,16 +5,15 @@ head
   title= name
   meta(name="viewport", cntnt="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1.0")
   meta(name="description", cntnt= description)
-  //- link(rel="stylesheet", href="css/#{name}.min.css")
   link(rel="stylesheet", href="css/#{name}.min.css")
   link(rel="stylesheet", href="css/theme.min.css")
 body
   .ml
-    //- .ml-pnl.ml-pnl--md.ml-pnl--flp
-    //-   .ml-flip.ml-pnl__cntnt
-    //-     img.ml-flip__frnt--img(src="img/photo-1.jpg")
-    //-     .ml-flip__bck.bg--green
-    //-       p Here is a flipped image...
+    .ml-pnl.ml-pnl--md.ml-flp
+      .ml-pnl__cntnt.ml-flp__cntnt
+        img.ml-flp__pnl.ml-flp__pnl--frnt.ml-flp__pnl--img(src="img/photo-1.jpg")
+        .ml-flp__pnl.ml-flp__pnl--bck.bg--green
+          p Here is a flpped image...
     .ml-pnl
       .ml-pnl__cntnt.tx--white.bg--green
         h1 Here is a masonry layout.

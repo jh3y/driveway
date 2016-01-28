@@ -4,5 +4,4 @@ node_modules/
 
 .publish/
 
-dist/bem.*
-dist/exp.*
+dist/theme.*

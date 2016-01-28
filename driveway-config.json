@@ -11,10 +11,10 @@
       }
     },
     "flip": {
-      "lbl": "ml-flip",
+      "lbl": "ml-flp",
       "els": {
-        "front": "frnt",
-        "back": "bck"
+        "panel": "pnl",
+        "content": "cntnt"
       }
     }
   },
@@ -30,6 +30,8 @@
     "half": "hlf",
     "full": "fll",
     "image": "img",
-    "flip": "flp"
+    "flip": "flp",
+    "front": "frnt",
+    "back": "bck"
   }
 }
