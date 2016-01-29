@@ -44,19 +44,19 @@
 }
 .ml-pnl--sgmnt {
   display: block;
-  width: 100%;
   height: auto;
+  width: 100%;
 }
 @media (min-width: 768px) {
   .ml-pnl--sgmnt {
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
   }
 }
 @media (min-width: 768px) {
@@ -70,24 +70,24 @@
     -webkit-flex: 0 0 100%;
         -ms-flex: 0 0 100%;
             flex: 0 0 100%;
-    width: 100%;
     height: 100%;
+    width: 100%;
   }
   .ml-pnl--hlf {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 505%;
         -ms-flex: 0 0 505%;
             flex: 0 0 505%;
-    width: 50%;
     height: 50%;
+    width: 50%;
   }
   .ml-pnl--qrt {
     -webkit-box-flex: 0;
     -webkit-flex: 0 0 25%;
         -ms-flex: 0 0 25%;
             flex: 0 0 25%;
-    width: 25%;
     height: 25%;
+    width: 25%;
   }
   .ml-pnl--vrt {
     -webkit-box-orient: vertical;
@@ -115,6 +115,10 @@
   .ml-pnl--md,
   .ml-pnl--lg {
     overflow: hidden;
+  }
+  .ml-pnl--sm:not(.ml-flp),
+  .ml-pnl--md:not(.ml-flp),
+  .ml-pnl--lg:not(.ml-flp) {
     height: auto;
   }
 }
@@ -123,15 +127,15 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  padding: 0;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
+  padding: 0;
 }
 .ml-pnl__cntnt {
-  padding: 10px;
   border-radius: 10px;
   overflow: hidden;
+  padding: 10px;
   width: 100%;
 }
 .ml-pnl__cntnt--img {
@@ -147,29 +151,29 @@
           transform: rotateY(180deg);
 }
 .ml-flp__pnl {
-  position: absolute;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  border-radius: 10px;
   -webkit-backface-visibility: hidden;
           backface-visibility: hidden;
+  border-radius: 10px;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 .ml-flp__pnl--frnt {
-  z-index: 2;
   -webkit-transform: rotateY(0deg);
           transform: rotateY(0deg);
+  z-index: 2;
 }
 .ml-flp__pnl--bck {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
 .ml-flp__cntnt {
-  position: relative;
-  overflow: visible;
   height: 100%;
+  overflow: visible;
+  position: relative;
   -webkit-transform-style: preserve-3d;
           transform-style: preserve-3d;
   -webkit-transition: 0.25s;
