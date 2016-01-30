@@ -18,6 +18,19 @@ $panelgap = unquote(c.panelGap)
   box-sizing   border-box
   column-count 1
   column-gap   0
+  position     relative
+
+  +el($blocks.layout.els.focus-curtain)
+    background-color black
+    bottom           0
+    display          none
+    left             0
+    opacity          .5
+    position         fixed
+    right            0
+    top              0
+    z-index          2
+
 
   *
     box-sizing border-box
@@ -51,6 +64,14 @@ $panelgap = unquote(c.panelGap)
     @media(min-width: 768px)
       display flex
       flex 1
+
+  +mod($mods.focus)
+    position relative
+    z-index  3
+
+    &:hover ~ .{$blocks.layout.lbl}__{$blocks.layout.els.focus-curtain}
+      display block
+
 
   @media (min-width: 768px)
     break-inside avoid

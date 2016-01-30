@@ -2,7 +2,10 @@
   "panelGap": "5px",
   "blocks": {
     "layout": {
-      "lbl": "ml"
+      "lbl": "ml",
+      "els": {
+        "focus-curtain": "fcs-crtn"
+      }
     },
     "panel": {
       "lbl": "ml-pnl",
@@ -32,6 +35,7 @@
     "image": "img",
     "flip": "flp",
     "front": "frnt",
-    "back": "bck"
+    "back": "bck",
+    "focus": "fcs"
   }
 }

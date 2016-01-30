@@ -10,6 +10,18 @@
   -webkit-column-gap: 0;
      -moz-column-gap: 0;
           column-gap: 0;
+  position: relative;
+}
+.ml__fcs-crtn {
+  background-color: #000;
+  bottom: 0;
+  display: none;
+  left: 0;
+  opacity: 0.5;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 2;
 }
 .ml * {
   -webkit-box-sizing: border-box;
@@ -58,6 +70,13 @@
         -ms-flex: 1;
             flex: 1;
   }
+}
+.ml-pnl--fcs {
+  position: relative;
+  z-index: 3;
+}
+.ml-pnl--fcs:hover ~ .ml__fcs-crtn {
+  display: block;
 }
 @media (min-width: 768px) {
   .ml-pnl {

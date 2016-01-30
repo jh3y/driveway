@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "pure CSS masonry layout aid",
   "scripts": {
-    "update:packages": "node wipeDeps.js && rm -rf node_modules && npm update --save-dev"
+    "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save"
   },
   "devDependencies": {
     "browser-sync": "^2.11.1",
@@ -22,5 +22,8 @@
     "gulp-util": "^3.0.7",
     "stylint": "^1.3.6",
     "stylint-stylish": "^1.2.0"
+  },
+  "dependencies": {
+    "glob": "^6.0.4"
   }
 }
