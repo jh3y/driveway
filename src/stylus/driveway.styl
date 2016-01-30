@@ -20,12 +20,21 @@ $panelgap = unquote(c.panelGap)
   column-gap   0
   position     relative
 
+  +mod($mods.focus)
+    .{$blocks.panel.lbl}
+      position relative
+      &:hover
+        z-index  3
+
+      &:hover ~ .{$blocks.layout.lbl}__{$blocks.layout.els.focus-curtain}
+        display block
+
   +el($blocks.layout.els.focus-curtain)
     background-color black
     bottom           0
     display          none
     left             0
-    opacity          .5
+    opacity          .75
     position         fixed
     right            0
     top              0
@@ -67,10 +76,19 @@ $panelgap = unquote(c.panelGap)
 
   +mod($mods.focus)
     position relative
-    z-index  3
+
+    &:hover
+      z-index  3
 
     &:hover ~ .{$blocks.layout.lbl}__{$blocks.layout.els.focus-curtain}
       display block
+
+  +mod($mods.pulse)
+    transform-style preserve-3d
+    perspective     1000
+    transition      transform .25s ease 0s
+    &:hover
+      transform scale(1.02)
 
 
   @media (min-width: 768px)

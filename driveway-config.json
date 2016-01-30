@@ -36,6 +36,7 @@
     "flip": "flp",
     "front": "frnt",
     "back": "bck",
-    "focus": "fcs"
+    "focus": "fcs",
+    "pulse": "pls"
   }
 }
