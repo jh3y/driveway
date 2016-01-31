@@ -9,36 +9,40 @@ head
   link(rel="stylesheet", href="css/theme.min.css")
 body
   .ml
-    .ml-pnl.ml-pnl--md.ml-flp
+    .ml-pnl.ml-flp--md.ml-flp
       .ml-pnl__cntnt.ml-flp__cntnt
-        img.ml-flp__pnl.ml-flp__pnl--frnt.ml-flp__pnl--img(src="img/photo-1.jpg")
+        img.ml-flp__pnl.ml-flp__pnl--frnt(src="img/photo-1.jpg")
         .ml-flp__pnl.ml-flp__pnl--bck.bg--green
           p Here is a flpped image...
     .ml-pnl
       .ml-pnl__cntnt.tx--white.bg--green
         h1 Here is a masonry layout.
-    .ml-pnl.ml-pnl--clstr.ml-pnl--hrz.ml-pnl--md
-      .ml-pnl.ml-pnl--sgmnt.ml-pnl--fll
-        img.ml-pnl__cntnt.ml-pnl__cntnt--img(src="img/photo-2.jpg")
-      .ml-pnl.ml-pnl--sgmnt.ml-pnl--qrt
-        img.ml-pnl__cntnt.ml-pnl__cntnt--img(src="img/photo-1.jpg")
-      .ml-pnl.ml-pnl--sgmnt
-        .ml-pnl__cntnt.bg--red.tx--white
-          p.
-            Some cool pics.
+    .ml-pnl.ml-clstr.ml-clstr--hrz
+      .ml-clstr__sgmnt.ml-clstr__sgmnt--rw
+        .ml-pnl.ml-clstr__sgmnt
+          img.ml-pnl__cntnt.ml-pnl__cntnt--img(src="img/photo-2.jpg")
+      .ml-clstr__sgmnt.ml-clstr__sgmnt--rw
+        .ml-pnl.ml-clstr__sgmnt.ml-clstr__sgmnt--hlf
+          img.ml-pnl__cntnt.ml-pnl__cntnt--img(src="img/photo-1.jpg")
+        .ml-pnl.ml-clstr__sgmnt
+          .ml-pnl__cntnt.bg--red.tx--white
+            p.
+              Some cool pics.
     .ml-pnl
       .ml-pnl__cntnt.tx--white.bg--purple
         h3 That's pretty cool, thanks for showing me.
-    .ml-pnl.ml-pnl--clstr.ml-pnl--vrt.ml-pnl--lg
-      .ml-pnl.ml-pnl--sgmnt.ml-pnl--fll
-        img.ml-pnl__cntnt.ml-pnl__cntnt--img(src="img/photo-2.jpg")
-      .ml-pnl.ml-pnl--sgmnt.ml-pnl--qrt
-        .ml-pnl__cntnt.bg--blue.tx--white
-          p.
-            This is an image, it's quite nice.
-      .ml-pnl.ml-pnl--sgmnt
-        .ml-pnl__cntnt.bg--blue.tx--white
-          a Click here to find out more.
+    .ml-pnl.ml-clstr.ml-clstr--vrt
+      .ml-clstr__sgmnt.ml-clstr__sgmnt--clmn.ml-clstr__sgmnt--hlf
+        .ml-pnl.ml-clstr__sgmnt
+          img.ml-pnl__cntnt.ml-pnl__cntnt--img(src="img/photo-2.jpg")
+      .ml-clstr__sgmnt.ml-clstr__sgmnt--clmn
+        .ml-pnl.ml-clstr__sgmnt
+          .ml-pnl__cntnt.bg--blue.tx--white
+            p.
+              This is an image, it's quite nice.
+        .ml-pnl.ml-clstr__sgmnt
+          .ml-pnl__cntnt.bg--blue.tx--white
+            a Click here to find out more.
     .ml-pnl.ml-pnl--fcs
       .ml-pnl__cntnt.tx--white.bg--green
         p.

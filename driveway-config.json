@@ -19,6 +19,12 @@
         "panel": "pnl",
         "content": "cntnt"
       }
+    },
+    "cluster": {
+      "lbl": "ml-clstr",
+      "els": {
+        "segment": "sgmnt"
+      }
     }
   },
   "mods": {
@@ -37,6 +43,8 @@
     "front": "frnt",
     "back": "bck",
     "focus": "fcs",
-    "pulse": "pls"
+    "pulse": "pls",
+    "column": "clmn",
+    "row": "rw"
   }
 }
