@@ -16,3 +16,6 @@
 .bg--blue {
   background-color: #1e8bc3;
 }
+img {
+  max-height: 300px;
+}
