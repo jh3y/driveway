@@ -8,7 +8,7 @@ __NOTE:__ driveway is currently a work in progress.
 It is developed using `gulp`, `stylus` and `jade`.
 
 ## just give me it
-If you just want a copy of `driveway` identical to what was used in the blog post I wrote about pure CSS masonry layouts fit with vendor prefixing. You'll be best served looking in the `dist` folder for `driveway.blog.css`.
+If you just want a copy of `driveway` identical to what was used in the blog post I wrote about pure CSS masonry layouts fit with vendor prefixing. You'll be best served looking in the `dist` folder.
 
 ## developing
 ### prerequisites
