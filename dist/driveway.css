@@ -15,15 +15,6 @@
           column-gap: 0;
   position: relative;
 }
-.ml--fcs .ml-pnl {
-  position: relative;
-}
-.ml--fcs .ml-pnl:hover {
-  z-index: 3;
-}
-.ml--fcs .ml-pnl:hover ~ .ml__fcs-crtn {
-  display: block;
-}
 .ml__fcs-crtn {
   background-color: #000;
   bottom: 0;
@@ -179,7 +170,6 @@
   -webkit-flex: 1 1 auto;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
-  overflow: hidden;
 }
 .ml-clstr__sgmnt--rw {
   display: -webkit-box;
