@@ -1,5 +1,7 @@
 {
-  "panelGap": "5px",
+  "aesthetics": {
+    "panelGap": "5px"
+  },
   "blocks": {
     "layout": {
       "lbl": "ml",
@@ -38,7 +40,6 @@
     "quarter": "qrt",
     "half": "hlf",
     "full": "fll",
-    "image": "img",
     "flip": "flp",
     "front": "frnt",
     "back": "bck",

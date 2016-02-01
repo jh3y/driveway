@@ -1,0 +1,29 @@
+include variables.jade
+
+mixin segmentContainer(orientation, mod)
+  - var segmentClass = blocks.cluster.lbl + '__' + blocks.cluster.els.segment
+  - var orientationClass = segmentClass + '--' + mods[orientation]
+  - var modClass = ''
+  if mod
+    - modClass = segmentClass + '--' + mods[mod]
+  div(class="#{segmentClass} #{orientationClass} #{modClass}")
+    if block
+      block
+    else
+      h1 Empty segment container
+
+mixin segment(mod, imageUrl)
+  - var panelClass = blocks.panel.lbl
+  - var contentClass = panelClass + '__' + blocks.panel.els.content
+  - var segmentClass = blocks.cluster.lbl + '__' + blocks.cluster.els.segment
+  - var modClass = ''
+  if mod
+    - modClass = segmentClass + '--' + mods[mod]
+  - var colors = [bgRed, bgGreen, bgBlue, bgPurple]
+  - var color = colors[(Math.floor(Math.random() * colors.length + 1)) - 1]
+  div(class="#{panelClass} #{segmentClass} #{modClass}")
+    if imageUrl
+      img(class="#{contentClass}", src=imageUrl)
+    else
+      div(class="#{contentClass} #{txWhite} #{color}")
+        block

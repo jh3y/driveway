@@ -1,3 +1,10 @@
+include mixins/layout.jade
+include mixins/panel.jade
+include mixins/cluster.jade
+include mixins/focusCurtain.jade
+include mixins/flip.jade
+include mixins/segment.jade
+
 html(lang="en-us")
 head
   meta(charset="utf-8")
@@ -8,60 +15,40 @@ head
   link(rel="stylesheet", href="css/#{name}.min.css")
   link(rel="stylesheet", href="css/theme.min.css")
 body
-  .ml
-    .ml-pnl.ml-flp--md.ml-flp
-      .ml-pnl__cntnt.ml-flp__cntnt
-        img.ml-flp__pnl.ml-flp__pnl--frnt(src="img/photo-1.jpg")
-        .ml-flp__pnl.ml-flp__pnl--bck.bg--green
-          p Here is a flpped image...
-    .ml-pnl
-      .ml-pnl__cntnt.tx--white.bg--green
-        h1 Here is a masonry layout.
-    .ml-pnl.ml-clstr.ml-clstr--hrz
-      .ml-clstr__sgmnt.ml-clstr__sgmnt--rw
-        .ml-pnl.ml-clstr__sgmnt
-          img.ml-pnl__cntnt.ml-pnl__cntnt--img(src="img/photo-2.jpg")
-      .ml-clstr__sgmnt.ml-clstr__sgmnt--rw
-        .ml-pnl.ml-clstr__sgmnt.ml-clstr__sgmnt--hlf
-          img.ml-pnl__cntnt.ml-pnl__cntnt--img(src="img/photo-1.jpg")
-        .ml-pnl.ml-clstr__sgmnt
-          .ml-pnl__cntnt.bg--red.tx--white
-            p.
-              Some cool pics.
-    .ml-pnl
-      .ml-pnl__cntnt.tx--white.bg--purple
-        h3 That's pretty cool, thanks for showing me.
-    .ml-pnl.ml-clstr.ml-clstr--vrt
-      .ml-clstr__sgmnt.ml-clstr__sgmnt--clmn.ml-clstr__sgmnt--hlf
-        .ml-pnl.ml-clstr__sgmnt
-          img.ml-pnl__cntnt.ml-pnl__cntnt--img(src="img/photo-2.jpg")
-      .ml-clstr__sgmnt.ml-clstr__sgmnt--clmn
-        .ml-pnl.ml-clstr__sgmnt
-          .ml-pnl__cntnt.bg--blue.tx--white
-            p.
-              This is an image, it's quite nice.
-        .ml-pnl.ml-clstr__sgmnt
-          .ml-pnl__cntnt.bg--blue.tx--white
-            a Click here to find out more.
-    .ml-pnl.ml-pnl--fcs
-      .ml-pnl__cntnt.tx--white.bg--green
-        p.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu justo ex. Praesent mollis augue sagittis eros pharetra feugiat. Phasellus dignissim est lacus. Sed nec imperdiet dolor, sit amet mattis ex.
-    .ml-pnl
-      .ml-pnl__cntnt.tx--white.bg--red
-        p.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu justo ex. Praesent mollis augue sagittis eros pharetra feugiat. Phasellus dignissim est lacus. Sed nec imperdiet dolor, sit amet mattis ex. Sed sed augue eu neque tristique commodo. Mauris aliquet tortor sollicitudin nibh molestie, id egestas nisl sollicitudin. Aliquam erat volutpat. Donec quis ultrices ligula. Cras sed purus risus. Curabitur quis eros eu tortor semper eleifend. Pellentesque lorem elit, dignissim interdum massa id, malesuada rutrum ligula. Suspendisse tempor quis mauris eu facilisis. Phasellus non volutpat diam, non dapibus ligula. Ut non molestie ex, nec sagittis mi. Curabitur suscipit tellus id dolor pretium blandit. Cras tristique tristique pharetra.
-    .ml-pnl
-      .ml-pnl__cntnt.tx--white.bg--green
-        h2 Some post about something
-        p.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu justo ex. Praesent mollis augue sagittis eros pharetra feugiat. Phasellus dignissim est lacus. Sed nec imperdiet dolor, sit amet mattis ex. Sed sed augue eu neque tristique commodo. Mauris aliquet tortor sollicitudin nibh molestie, id egestas nisl sollicitudin. Aliquam erat volutpat. Donec quis ultrices ligula. Cras sed purus risus. Curabitur quis eros eu tortor semper eleifend.
-    .ml-pnl
-      img.ml-pnl__cntnt.ml-pnl__cntnt--img(src="img/photo-1.jpg")
-    .ml-pnl.ml-pnl--fcs
-      .ml-pnl__cntnt.tx--white.bg--blue
-        p.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu justo ex. Praesent mollis augue sagittis eros pharetra feugiat. Phasellus dignissim est lacus. Sed nec imperdiet dolor, sit amet mattis ex.
-    .ml-pnl.ml-pnl--pls
-      img.ml-pnl__cntnt.ml-pnl__cntnt--img(src="img/photo-1.jpg")
-    .ml__fcs-crtn
+  +layout()
+    +flip('medium')
+    +panel('bg--green tx--white')
+      h1 Here is a masonry layout.
+    +cluster('horizontal')
+      +segmentContainer('row')
+        +segment(null, "img/photo-1.jpg")
+      +segmentContainer('row')
+        +segment('half', "img/photo-2.jpg")
+        +segment(null, false)
+          p Some cool pics
+    +panel('bg--purple tx--white')
+      h3 That's pretty cool, thanks for showing me.
+    +cluster('vertical')
+      +segmentContainer('column', 'half')
+        +segment(null, "img/photo-2.jpg")
+      +segmentContainer('column')
+        +segment(null, false)
+          p This is an image, it's quite nice
+        +segment(null, false)
+          a(href="#") This could be a link to click
+    +panel('tx--white bg--green', null, 'focus')
+      p.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu justo ex. Praesent mollis augue sagittis eros pharetra feugiat. Phasellus dignissim est lacus. Sed nec imperdiet dolor, sit amet mattis ex.
+    +panel('tx--white bg--red')
+      p.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu justo ex. Praesent mollis augue sagittis eros pharetra feugiat. Phasellus dignissim est lacus. Sed nec imperdiet dolor, sit amet mattis ex. Sed sed augue eu neque tristique commodo. Mauris aliquet tortor sollicitudin nibh molestie, id egestas nisl sollicitudin. Aliquam erat volutpat. Donec quis ultrices ligula. Cras sed purus risus. Curabitur quis eros eu tortor semper eleifend. Pellentesque lorem elit, dignissim interdum massa id, malesuada rutrum ligula. Suspendisse tempor quis mauris eu facilisis. Phasellus non volutpat diam, non dapibus ligula. Ut non molestie ex, nec sagittis mi. Curabitur suscipit tellus id dolor pretium blandit. Cras tristique tristique pharetra.
+    +panel('tx--white bg--green')
+      h2 Some post about something
+      p.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu justo ex. Praesent mollis augue sagittis eros pharetra feugiat. Phasellus dignissim est lacus. Sed nec imperdiet dolor, sit amet mattis ex. Sed sed augue eu neque tristique commodo. Mauris aliquet tortor sollicitudin nibh molestie, id egestas nisl sollicitudin. Aliquam erat volutpat. Donec quis ultrices ligula. Cras sed purus risus. Curabitur quis eros eu tortor semper eleifend.
+    +panel(null, "img/photo-1.jpg", null)
+    +panel('tx--white bg--blue', null, 'focus')
+      p.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu justo ex. Praesent mollis augue sagittis eros pharetra feugiat. Phasellus dignissim est lacus. Sed nec imperdiet dolor, sit amet mattis ex.
+    +panel(null, "img/photo-1.jpg", 'pulse')
+    +focusCurtain()

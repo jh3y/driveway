@@ -7,11 +7,7 @@ c = json('../../driveway-config.json', {
 })
 $blocks   = c.blocks
 $mods     = c.mods
-$panelgap = unquote(c.panelGap)
-
-/**
-  * driveway.css - pure CSS masonry layouts aid.
-*/
+$panelgap = unquote(c.aesthetics.panelGap)
 
 // Layout block
 .{$blocks.layout.lbl}
@@ -19,15 +15,6 @@ $panelgap = unquote(c.panelGap)
   column-count 1
   column-gap   0
   position     relative
-
-  +mod($mods.focus)
-    .{$blocks.panel.lbl}
-      position relative
-      &:hover
-        z-index  3
-
-      &:hover ~ .{$blocks.layout.lbl}__{$blocks.layout.els.focus-curtain}
-        display block
 
   +el($blocks.layout.els.focus-curtain)
     background-color black
@@ -80,10 +67,6 @@ $panelgap = unquote(c.panelGap)
     padding       10px
     width         100%
 
-    +mod($mods.image)
-      max-width 100%
-      padding 0
-
 
 .{$blocks.flip.lbl}
   perspective 1000
@@ -113,7 +96,7 @@ $panelgap = unquote(c.panelGap)
 
     +mod($mods.front)
       transform rotateY(0deg)
-      z-index 2
+      z-index   2
 
     +mod($mods.back)
       transform rotateY(180deg)
@@ -140,11 +123,10 @@ $panelgap = unquote(c.panelGap)
 
   +el($blocks.cluster.els.segment)
     display flex
-    overflow hidden
-    flex 1 1 auto
+    flex    1 1 auto
 
     +mod($mods.row)
-      display flex
+      display        flex
       flex-direction column
 
       @media(min-width: 768px)

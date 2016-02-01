@@ -1,5 +1,8 @@
-/**
-  * driveway.css - pure CSS masonry layouts aid.
+/*!
+  * driveway
+  *
+  * @author jh3y
+  * @license MIT
 */
 .ml {
   -webkit-box-sizing: border-box;
@@ -91,10 +94,6 @@
   padding: 10px;
   width: 100%;
 }
-.ml-pnl__cntnt--img {
-  max-width: 100%;
-  padding: 0;
-}
 .ml-flp {
   -webkit-perspective: 1000;
           perspective: 1000;
@@ -176,11 +175,11 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  overflow: hidden;
   -webkit-box-flex: 1;
   -webkit-flex: 1 1 auto;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
+  overflow: hidden;
 }
 .ml-clstr__sgmnt--rw {
   display: -webkit-box;

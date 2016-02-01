@@ -1,0 +1,16 @@
+mixin flip(mod)
+  - var panelClass = blocks.panel.lbl
+  - var flipClass = blocks.flip.lbl
+  - var modClass = ''
+  - var flipContentClass = flipClass + '__' + blocks.flip.els.content
+  - var panelContentClass = panelClass + '__' + blocks.panel.els.content
+  - var flipPanel = flipClass + '__' + blocks.flip.els.panel
+  - var flipFront = flipPanel + '--' + mods.front
+  - var flipBack  = flipPanel + '--' + mods.back
+  if mod
+    - modClass = flipClass + '--' + mods[mod]
+  div(class="#{panelClass} #{flipClass} #{modClass}")
+    div(class="#{panelContentClass} #{flipContentClass}")
+      img(class="#{flipPanel} #{flipFront}", src="img/photo-1.jpg")
+      div(class="#{flipPanel} #{flipBack} #{bgPurple}")
+        p Here is a flpped image...

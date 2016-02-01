@@ -1,3 +1,5 @@
+include mixins/layout.jade
+include mixins/mixins.jade
 html(lang="en-us")
 head
   meta(charset="utf-8")
@@ -8,53 +10,19 @@ head
   link(rel="stylesheet", href="css/#{name}.min.css")
   link(rel="stylesheet", href="css/theme.min.css")
 body
-  .ml
+  +layout()
     - var n = 0
-    - var nestedSizes = ['sm', 'md', 'lg']
-    - var colors = ['red', 'green', 'blue', 'purple']
     while n < 10
-      - var type = Math.floor(Math.random() * 4 + 1)
-      - var nested = Math.floor(Math.random() * 3 + 1)
-      - var nestedClass = 'ml-pnl'
-      - var horizontalClass = ''
-      - var sizeClass = ''
+      - var isNested = ''
+      - var nested = Math.floor(Math.random() * 2 + 1)
       if nested === 1
-        - nestedClass = 'ml-clstr'
-        - horizontalClass = 'vrt'
+        - isNested = true
         - var isHorizontal = Math.floor(Math.random() * 2 + 1)
         if isHorizontal === 1
-          - horizontalClass = 'hrz'
-      .ml-pnl(class="#{nestedClass} #{nestedClass}--#{horizontalClass}")
-        if nested === 1
-          if isHorizontal === 1
-            .ml-clstr__sgmnt.ml-clstr__sgmnt--rw
-              .ml-pnl.ml-clstr__sgmnt
-                .ml-pnl__cntnt.bg--green.tx--white
-                  h1 I
-            .ml-clstr__sgmnt.ml-clstr__sgmnt--rw
-              .ml-pnl.ml-clstr__sgmnt.ml-clstr__sgmnt--hlf
-                .ml-pnl__cntnt.bg--blue.tx--white
-                  h1 am
-              .ml-pnl.ml-clstr__sgmnt
-                .ml-pnl__cntnt.bg--red.tx--white
-                  h1 horizontal
-          else
-            .ml-clstr__sgmnt.ml-clstr__sgmnt--clmn
-              .ml-pnl.ml-clstr__sgmnt
-                .ml-pnl__cntnt.bg--green.tx--white
-                  h1 I
-            .ml-clstr__sgmnt.ml-clstr__sgmnt--clmn
-              .ml-pnl.ml-clstr__sgmnt
-                .ml-pnl__cntnt.bg--blue.tx--white
-                  h1 am
-              .ml-pnl.ml-clstr__sgmnt
-                .ml-pnl__cntnt.bg--red.tx--white
-                  h1 vertical
+          - flow = 'horizontal'
         else
-          - var paras = Math.floor(Math.random() * 4 + 1)
-          .ml-pnl__cntnt(class="bg--#{colors[paras - 1]}")
-            - var p = 0
-            while p < paras
-              p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non varius nunc, nec viverra dolor. Sed porttitor urna non accumsan vehicula. Morbi malesuada mollis lacus.
-              - p++
-        - n++
+          - flow = 'vertical'
+      else
+        - isNested = false
+      +generatePanel(isNested, flow)
+      - n++

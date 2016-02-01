@@ -15,17 +15,19 @@ var gulp      = require('gulp'),
   },
   /* styles:compile */
   compile = function() {
-     return gulp.src(src.styles)
-    .pipe(plugins.plumber())
-    .pipe(plugins.stylus())
-    .pipe(plugins.prefix(opts.prefix))
-    .pipe(env.stat ? plugins.size(opts.gSize): plugins.gUtil.noop())
-    .pipe(env.deploy ? plugins.gUtil.noop(): gulp.dest(env.dist ? dest.dist: dest.css))
-    .pipe(plugins.minify())
-    .pipe(plugins.rename(opts.rename))
-    .pipe(env.stat ? plugins.size(opts.gSize): plugins.gUtil.noop())
-    .pipe(gulp.dest(env.dist ? dest.dist: dest.css))
-    .pipe(browserSync.stream());
+    var licenseComment = '/*!\n  * driveway\n  *\n  * @author jh3y\n  * @license MIT\n*/\n';
+    return gulp.src(src.styles)
+      .pipe(plugins.plumber())
+      .pipe(plugins.stylus())
+      .pipe(plugins.prefix(opts.prefix))
+      .pipe(env.dist ? plugins.header(licenseComment): plugins.gUtil.noop())
+      .pipe(env.stat ? plugins.size(opts.gSize): plugins.gUtil.noop())
+      .pipe(env.deploy ? plugins.gUtil.noop(): gulp.dest(env.dist ? dest.dist: dest.css))
+      .pipe(plugins.minify())
+      .pipe(plugins.rename(opts.rename))
+      .pipe(env.stat ? plugins.size(opts.gSize): plugins.gUtil.noop())
+      .pipe(gulp.dest(env.dist ? dest.dist: dest.css))
+      .pipe(browserSync.stream());
   },
   /* styles:watch */
   watch = function() {

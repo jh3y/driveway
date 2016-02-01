@@ -28,7 +28,7 @@ gulp.task('styles:watch', styles.watch);
   page document files.
 */
 gulp.task('markup:lint', markup.lint);
-gulp.task('markup:compile', markup.compile);
+gulp.task('markup:compile', ['markup:lint'], markup.compile);
 gulp.task('markup:watch', markup.watch);
 
 
