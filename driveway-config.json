@@ -1,6 +1,11 @@
 {
+  "responses": {
+    "768px": "2",
+    "1200px": "3"
+  },
   "aesthetics": {
-    "panelGap": "5px"
+    "panelGap": "5px",
+    "borderRadius": "10px"
   },
   "blocks": {
     "layout": {

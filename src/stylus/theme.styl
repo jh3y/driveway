@@ -3,26 +3,37 @@ $green  = #26a65b
 $purple = #8e44ad
 $blue   = #1e8bc3
 $white  = #fff
+
+$colorPallette = {
+  red   : $red
+  blue  : $blue
+  green : $green
+  purple: $purple
+  white : $white
+}
+
 /**
-  * Color styles
+* Colors
 */
-.tx--white
-  color $white
+for color, value in $colorPallette
+  .bg--{color}
+    background-color value
+  .tx--{color}
+    color            value
 
-.bg--red
-  background-color $red
+// Import user configuration
+c = json('../../driveway-config.json', {
+  hash: true,
+  leave-strings: true
+})
+$blocks   = c.blocks
+$mods     = c.mods
 
-.bg--green
-  background-color $green
-
-.bg--purple
-  background-color $purple
-
-.bg--blue
-  background-color $blue
-
+/**
+* Images
+*/
 img
   max-height 300px
 
-img.ml-pnl__cntnt
-  padding    0
+  &.{$blocks.panel.lbl}__{$blocks.panel.els.content}
+    padding 0

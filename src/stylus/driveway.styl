@@ -14,7 +14,13 @@ c = json('../../driveway-config.json', {
 })
 $blocks   = c.blocks
 $mods     = c.mods
-$panelgap = unquote(c.aesthetics.panelGap)
+
+// Define aesthetic variables
+for aesthetic, value in c.aesthetics
+  define('$' + aesthetic, unquote(value))
+
+
+
 
 // Layout block
 .{$blocks.layout.lbl}
@@ -47,7 +53,7 @@ $panelgap = unquote(c.aesthetics.panelGap)
 // Panel block
 .{$blocks.panel.lbl}
   margin 0
-  padding $panelgap
+  padding $panelGap
 
   +mod($mods.focus)
     position relative
@@ -69,7 +75,7 @@ $panelgap = unquote(c.aesthetics.panelGap)
     break-inside avoid
 
   +el($blocks.panel.els.content)
-    border-radius 10px
+    border-radius $borderRadius
     overflow      hidden
     padding       10px
     width         100%
@@ -93,7 +99,7 @@ $panelgap = unquote(c.aesthetics.panelGap)
 
   +el($blocks.flip.els.panel)
     backface-visibility hidden
-    border-radius       10px
+    border-radius       $borderRadius
     height              100%
     left                0
     overflow            hidden
