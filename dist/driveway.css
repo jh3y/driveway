@@ -7,9 +7,6 @@
 .ml {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  -webkit-column-count: 1;
-     -moz-column-count: 1;
-          column-count: 1;
   -webkit-column-gap: 0;
      -moz-column-gap: 0;
           column-gap: 0;
