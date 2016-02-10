@@ -16,10 +16,8 @@ $blocks    = c.blocks
 $mods      = c.mods
 $responses = c.responses
 
-//  if responses.collapse = md
 define('$clusterCollapse', unquote($responses.breakpoints[$responses.collapse]))
 
-// Define aesthetic variables
 for aesthetic, value in c.aesthetics
   define('$' + aesthetic, unquote(value))
 
@@ -28,11 +26,9 @@ for feature, enabled in c.features
 
 // Layout block
 .{$blocks.layout.lbl}
-  box-sizing   border-box
-  // NOTE: Shouldn't be necessary.
-  // column-count 1
-  column-gap   0
-  position     relative
+  box-sizing border-box
+  column-gap 0
+  position   relative
 
   if $focus
     +el($blocks.layout.els.focus-curtain)
@@ -46,19 +42,16 @@ for feature, enabled in c.features
       top              0
       z-index          2
 
-
   *
     box-sizing border-box
 
-  // TODO: Generate through each loop, ignore sm breakpoint if cols == 1
-  // Enables setting of sm breakpoint so can be used by cluster collapse.
   for breakpoint, value in $responses.breakpoints
     define('columnCount', $responses.cols[breakpoint])
     define('breakpointVal', unquote(value))
     if columnCount != 1
       @media(min-width: breakpointVal)
 
-        // NOTE space required to please linter...
+        // NOTE: space required to please linter.
         column-count columnCount
 
 // Panel block
