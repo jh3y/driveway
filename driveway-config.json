@@ -12,6 +12,11 @@
     },
     "collapse": "md"
   },
+  "features": {
+    "focus": true,
+    "flip": true,
+    "pulse": true
+  },
   "aesthetics": {
     "panelGap": "5px",
     "borderRadius": "10px"
@@ -53,7 +58,6 @@
     "horizontal": "hrz",
     "quarter": "qrt",
     "half": "hlf",
-    "full": "fll",
     "flip": "flp",
     "front": "frnt",
     "back": "bck",
