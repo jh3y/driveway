@@ -12,108 +12,127 @@ c = json('../../driveway-config.json', {
   hash: true,
   leave-strings: true
 })
-$blocks   = c.blocks
-$mods     = c.mods
-$panelgap = unquote(c.aesthetics.panelGap)
+$blocks    = c.blocks
+$mods      = c.mods
+$responses = c.responses
+
+//  if responses.collapse = md
+define('$clusterCollapse', unquote($responses.breakpoints[$responses.collapse]))
+
+// Define aesthetic variables
+for aesthetic, value in c.aesthetics
+  define('$' + aesthetic, unquote(value))
+
+for feature, enabled in c.features
+  define('$' + feature, enabled)
 
 // Layout block
 .{$blocks.layout.lbl}
   box-sizing   border-box
-  column-count 1
+  // NOTE: Shouldn't be necessary.
+  // column-count 1
   column-gap   0
   position     relative
 
-  +el($blocks.layout.els.focus-curtain)
-    background-color black
-    bottom           0
-    display          none
-    left             0
-    opacity          .75
-    position         fixed
-    right            0
-    top              0
-    z-index          2
+  if $focus
+    +el($blocks.layout.els.focus-curtain)
+      background-color black
+      bottom           0
+      display          none
+      left             0
+      opacity          .75
+      position         fixed
+      right            0
+      top              0
+      z-index          2
 
 
   *
     box-sizing border-box
 
-  @media(min-width: 768px)
-    column-count 2
+  // TODO: Generate through each loop, ignore sm breakpoint if cols == 1
+  // Enables setting of sm breakpoint so can be used by cluster collapse.
+  for breakpoint, value in $responses.breakpoints
+    define('columnCount', $responses.cols[breakpoint])
+    define('breakpointVal', unquote(value))
+    if columnCount != 1
+      @media(min-width: breakpointVal)
 
-  @media(min-width: 1200px)
-    column-count 3
+        // NOTE space required to please linter...
+        column-count columnCount
 
 // Panel block
 .{$blocks.panel.lbl}
   margin 0
-  padding $panelgap
+  padding $panelGap
 
-  +mod($mods.focus)
-    position relative
+  if $focus
+    +mod($mods.focus)
+      position relative
 
-    &:hover
-      z-index  3
+      &:hover
+        z-index  3
 
-    &:hover ~ .{$blocks.layout.lbl}__{$blocks.layout.els.focus-curtain}
-      display block
+      &:hover ~ .{$blocks.layout.lbl}__{$blocks.layout.els.focus-curtain}
+        display block
 
-  +mod($mods.pulse)
-    transform-style preserve-3d
-    perspective     1000
-    transition      transform .25s ease 0s
-    &:hover
-      transform scale(1.02)
+  if $pulse
+    +mod($mods.pulse)
+      transform-style preserve-3d
+      perspective     1000
+      transition      transform .25s ease 0s
+      &:hover
+        transform scale(1.02)
 
   @media (min-width: 768px)
     break-inside avoid
 
   +el($blocks.panel.els.content)
-    border-radius 10px
+    border-radius $borderRadius
     overflow      hidden
     padding       10px
     width         100%
 
+if $flip
+  .{$blocks.flip.lbl}
+    perspective 1000
 
-.{$blocks.flip.lbl}
-  perspective 1000
+    &:hover
+      .{$blocks.flip.lbl}__{$blocks.flip.els.content}
+        transform rotateY(180deg)
 
-  &:hover
-    .{$blocks.flip.lbl}__{$blocks.flip.els.content}
-      transform rotateY(180deg)
+    +mod($mods.small)
+      height 200px
 
-  +mod($mods.small)
-    height 200px
+    +mod($mods.medium)
+      height 300px
 
-  +mod($mods.medium)
-    height 300px
+    +mod($mods.large)
+      height 400px
 
-  +mod($mods.large)
-    height 400px
+    +el($blocks.flip.els.panel)
+      backface-visibility hidden
+      border-radius       $borderRadius
+      height              100%
+      left                0
+      overflow            hidden
+      position            absolute
+      top                 0
+      width               100%
 
-  +el($blocks.flip.els.panel)
-    backface-visibility hidden
-    border-radius       10px
-    height              100%
-    left                0
-    overflow            hidden
-    position            absolute
-    top                 0
-    width               100%
+      +mod($mods.front)
+        transform rotateY(0deg)
+        z-index   2
 
-    +mod($mods.front)
-      transform rotateY(0deg)
-      z-index   2
+      +mod($mods.back)
+        transform rotateY(180deg)
 
-    +mod($mods.back)
-      transform rotateY(180deg)
-
-  +el($blocks.flip.els.content)
-    height          100%
-    overflow        visible
-    position        relative
-    transform-style preserve-3d
-    transition      .25s
+    +el($blocks.flip.els.content)
+      height          100%
+      overflow        visible
+      position        relative
+      transform-style preserve-3d
+      transition      .25s
 
 .{$blocks.cluster.lbl}
   display flex
@@ -122,7 +141,7 @@ $panelgap = unquote(c.aesthetics.panelGap)
   +mod($mods.vertical)
     flex-direction column
 
-    @media(min-width: 768px)
+    @media(min-width: $clusterCollapse)
       flex-direction row
 
   +mod($mods.horizontal)
@@ -136,13 +155,13 @@ $panelgap = unquote(c.aesthetics.panelGap)
       display        flex
       flex-direction column
 
-      @media(min-width: 768px)
+      @media(min-width: $clusterCollapse)
         flex-direction row
 
     +mod($mods.column)
       flex-direction column
 
-    @media(min-width: 768px)
+    @media(min-width: $clusterCollapse)
       +mod($mods.half)
         flex-basis 50%
 
