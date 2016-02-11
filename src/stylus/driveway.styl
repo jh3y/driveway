@@ -33,6 +33,9 @@ for $feature, $enabled in c.features
   column-gap 0
   position   relative
 
+  *
+    box-sizing border-box
+
   if $focus
     +el($blocks.layout.els.focus-curtain)
       background-color black
@@ -45,8 +48,6 @@ for $feature, $enabled in c.features
       top              0
       z-index          2
 
-  *
-    box-sizing border-box
 
   for $breakpoint, $value in $responses.breakpoints
     define('$columnCount', $responses.cols[$breakpoint])

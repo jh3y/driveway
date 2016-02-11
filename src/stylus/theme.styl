@@ -27,7 +27,6 @@ c = json('../../driveway-config.json', {
   leave-strings: true
 })
 $blocks   = c.blocks
-$mods     = c.mods
 
 /**
 * Images
@@ -36,4 +35,5 @@ img
   max-height 300px
 
   &.{$blocks.panel.lbl}__{$blocks.panel.els.content}
+  &.{$blocks.flip.lbl}__{$blocks.flip.els.panel}
     padding 0
