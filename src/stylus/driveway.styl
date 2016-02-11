@@ -12,17 +12,20 @@ c = json('../../driveway-config.json', {
   hash: true,
   leave-strings: true
 })
-$blocks    = c.blocks
-$mods      = c.mods
-$responses = c.responses
+$blocks     = c.blocks
+$mods       = c.mods
+$responses  = c.responses
+$aesthetics = c.aesthetics
 
 define('$clusterCollapse', unquote($responses.breakpoints[$responses.collapse]))
 
-for aesthetic, value in c.aesthetics
-  define('$' + aesthetic, unquote(value))
+for $aesthetic, $value in $aesthetics
+  if $aesthetic != 'flipSizes'
+    define('$value', unquote($value))
+  define('$' + $aesthetic, $value)
 
-for feature, enabled in c.features
-  define('$' + feature, enabled)
+for $feature, $enabled in c.features
+  define('$' + $feature, $enabled)
 
 // Layout block
 .{$blocks.layout.lbl}
@@ -45,14 +48,14 @@ for feature, enabled in c.features
   *
     box-sizing border-box
 
-  for breakpoint, value in $responses.breakpoints
-    define('columnCount', $responses.cols[breakpoint])
-    define('breakpointVal', unquote(value))
-    if columnCount != 1
-      @media(min-width: breakpointVal)
+  for $breakpoint, $value in $responses.breakpoints
+    define('$columnCount', $responses.cols[$breakpoint])
+    define('$breakpointVal', unquote($value))
+    if $columnCount != 1
+      @media(min-width: $breakpointVal)
 
         // NOTE: space required to please linter.
-        column-count columnCount
+        column-count $columnCount
 
 // Panel block
 .{$blocks.panel.lbl}
@@ -77,14 +80,25 @@ for feature, enabled in c.features
       &:hover
         transform scale(1.02)
 
-  @media (min-width: 768px)
-    break-inside avoid
-
   +el($blocks.panel.els.content)
     border-radius $borderRadius
     overflow      hidden
-    padding       10px
+    padding       $panelPadding
     width         100%
+
+// NOTE: Iterates through responsive breakpoints in order to set break-inside
+// property on the smallest possible breakpoint where columns > 1
+$set = true
+for $breakpoint, $value in $responses.breakpoints
+  define('$columnCount', $responses.cols[$breakpoint])
+  define('$breakpointVal', unquote($value))
+
+  if $columnCount != 1
+    if $set
+      $set = false
+      .{$blocks.panel.lbl}
+        @media (min-width: $breakpointVal)
+          break-inside avoid
 
 if $flip
   .{$blocks.flip.lbl}
@@ -94,14 +108,14 @@ if $flip
       .{$blocks.flip.lbl}__{$blocks.flip.els.content}
         transform rotateY(180deg)
 
-    +mod($mods.small)
-      height 200px
+    // NOTE: Generates flip panel sizes.
+    // Important as flip panel must have a defined height in order to render
+    // properly.
+    for $size, $value in $flipSizes
+      define('$heightVal', unquote($value))
 
-    +mod($mods.medium)
-      height 300px
-
-    +mod($mods.large)
-      height 400px
+      +mod($size)
+        height $heightVal
 
     +el($blocks.flip.els.panel)
       backface-visibility hidden
@@ -109,6 +123,7 @@ if $flip
       height              100%
       left                0
       overflow            hidden
+      padding             $panelPadding
       position            absolute
       top                 0
       width               100%

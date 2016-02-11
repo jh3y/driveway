@@ -19,7 +19,13 @@
   },
   "aesthetics": {
     "panelGap": "5px",
-    "borderRadius": "10px"
+    "panelPadding": "20px",
+    "borderRadius": "10px",
+    "flipSizes": {
+      "sm": "200px",
+      "md": "300px",
+      "lg": "400px"
+    }
   },
   "blocks": {
     "layout": {
