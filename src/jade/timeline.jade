@@ -1,0 +1,38 @@
+include mixins/layout.jade
+include mixins/panel.jade
+include mixins/cluster.jade
+include mixins/focusCurtain.jade
+include mixins/flip.jade
+include mixins/segment.jade
+
+html(lang="en-us")
+head
+  meta(charset="utf-8")
+  meta(http-equiv="X-UA-Compatible", cntnt="IE=edge")
+  title driveway: pure CSS masonry layout aid
+  meta(name="viewport", cntnt="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1.0")
+  meta(name="description", cntnt= description)
+  link(href='https://fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet', type='text/css')
+  link(rel="stylesheet", href="css/#{name}.min.css")
+  link(rel="stylesheet", href="css/theme.min.css")
+body.bg--darkred
+  .dw--mobile
+    +panel('bd--grey bg--white')
+      h1 driveway
+      h3 pure CSS masonry layout aid
+    +panel('bd--white tx--white')
+      p.
+        driveway is the result of an exploration into creating pure CSS masonry layouts.
+  .dw--landscape
+    +cluster('vetical')
+      +segmentContainer('column')
+        +segment('bd--grey bg--white')
+          h1 driveway
+          h3 pure CSS masonry layout aid
+        +segment('bd--white tx--white')
+          p.
+            driveway is the result of an exploration into creating pure CSS masonry layouts.
+      +segmentContainer('column')
+        +segment(null, null, "img/photo-2.jpg")
+      +segmentContainer('column')
+        +segment(null, null, "img/photo-1.jpg")

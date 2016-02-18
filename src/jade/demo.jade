@@ -21,20 +21,20 @@ body
       h1 Here is a masonry layout.
     +cluster('horizontal')
       +segmentContainer('row')
-        +segment(null, "img/photo-1.jpg")
+        +segment(null, null, "img/photo-1.jpg")
       +segmentContainer('row')
-        +segment('half', "img/photo-2.jpg")
-        +segment(null, false)
+        +segment(null, 'half', "img/photo-2.jpg")
+        +segment(null, null, false)
           p Some cool pics
     +panel('bg--purple tx--white')
       h3 That's pretty cool, thanks for showing me.
     +cluster('vertical')
       +segmentContainer('column', 'half')
-        +segment(null, "img/photo-2.jpg")
+        +segment(null, null, "img/photo-2.jpg")
       +segmentContainer('column')
-        +segment(null, false)
+        +segment(null, null, false)
           p This is an image, it's quite nice
-        +segment(null, false)
+        +segment(null, null, false)
           a(href="#") This could be a link to click
     +panel('tx--white bg--green', null, 'focus')
       p.

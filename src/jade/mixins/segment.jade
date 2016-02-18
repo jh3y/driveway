@@ -12,7 +12,7 @@ mixin segmentContainer(orientation, mod)
     else
       h1 Empty segment container
 
-mixin segment(mod, imageUrl)
+mixin segment(theme, mod, imageUrl)
   - var panelClass = blocks.panel.lbl
   - var contentClass = panelClass + '__' + blocks.panel.els.content
   - var segmentClass = blocks.cluster.lbl + '__' + blocks.cluster.els.segment
@@ -21,9 +21,11 @@ mixin segment(mod, imageUrl)
     - modClass = segmentClass + '--' + mods[mod]
   - var colors = [bgRed, bgGreen, bgBlue, bgPurple]
   - var color = colors[(Math.floor(Math.random() * colors.length + 1)) - 1]
+  if theme
+    - color = theme
   div(class="#{panelClass} #{segmentClass} #{modClass}")
     if imageUrl
       img(class="#{contentClass}", src=imageUrl)
     else
-      div(class="#{contentClass} #{txWhite} #{color}")
+      div(class="#{contentClass} #{color}")
         block

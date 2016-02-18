@@ -1,28 +1,91 @@
 include mixins/layout.jade
-include mixins/mixins.jade
+include mixins/panel.jade
+include mixins/cluster.jade
+include mixins/focusCurtain.jade
+include mixins/flip.jade
+include mixins/segment.jade
+include mixins/stats.jade
+
 html(lang="en-us")
 head
   meta(charset="utf-8")
-  meta(http-equiv="X-UA-Compatible", content="IE=edge")
-  title= name
-  meta(name="viewport", content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1.0")
-  meta(name="description", content= description)
+  meta(http-equiv="X-UA-Compatible", cntnt="IE=edge")
+  title driveway: pure CSS masonry layout aid
+  meta(name="viewport", cntnt="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1.0")
+  meta(name="description", cntnt= description)
+  link(href='https://fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet', type='text/css')
   link(rel="stylesheet", href="css/#{name}.min.css")
   link(rel="stylesheet", href="css/theme.min.css")
-body
-  +layout()
-    - var n = 0
-    while n < 10
-      - var isNested = ''
-      - var nested = Math.floor(Math.random() * 2 + 1)
-      if nested === 1
-        - isNested = true
-        - var isHorizontal = Math.floor(Math.random() * 2 + 1)
-        if isHorizontal === 1
-          - flow = 'horizontal'
-        else
-          - flow = 'vertical'
-      else
-        - isNested = false
-      +generatePanel(isNested, flow)
-      - n++
+body.bg--darkred
+  +layout('bg--darkred')
+    +panel('bd--grey bg--white', null, 'focus')
+      h1 driveway
+      h3 pure CSS masonry layout aid
+      +githubStats('jh3y', 'driveway')
+    +panel('bd--white tx--white')
+      p.
+        driveway is the result of an exploration into creating pure CSS masonry layouts.
+    +panel(null, "img/photo-1.jpg", null)
+    +panel('bg--white bd--grey')
+      p.
+        display your content in a masonry style using only CSS.
+      ul
+        li easy to use
+        li interactive features
+        li responsive
+        li customisable
+        li extendable
+    +panel('bg--white')
+      pre.tx--red.bg--black
+        code.
+          <div class="level--1">&lt;div class="dw"&gt;<br></div>
+          <div class="level--2">&lt;div class="dw-pnl"&gt;<br></div>
+          <div class="level--3">&lt;div class="dw-pnl__cntnt"&gt;<br></div>
+          <div class="level--4"><div>some content</div></div>
+          <div class="level--3">&lt;/div&gt;<br></div>
+          <div class="level--2">&lt;/div&gt;<br></div>
+          <div class="level--1">&lt;/div&gt;</div>
+    +panel(null, "img/photo-2.jpg", null)
+    +cluster('horizontal')
+      +segmentContainer('row')
+        +segment('bg--purple tx--white')
+          h2 How
+      +segmentContainer('row')
+        +segment('bg--blue tx--white')
+          h2 about
+        +segment('bg--green tx--white')
+          h2 clusters?
+    .dw-pnl.dw-flp(style="height: 140px;")
+      .dw-pnl__cntnt.dw-flp__cntnt
+        .dw-flp__pnl.dw-flp__pnl--frnt.tx--white.bd--white.tx--center
+          h1 You can flip me round
+        .dw-flp__pnl.dw-flp__pnl--bck.bd--darkred.bg--white.tx--darkred.tx--center
+          h1 Yeah that's right
+    +cluster('vertical')
+      +segmentContainer('column')
+        +segment('bg--white tx--darkred')
+          h2 A
+      +segmentContainer('column')
+        +segment('bg--green tx--white')
+          h2 vertically
+        +segment('bg--blue tx--white')
+          h2 flowed
+        +segment('bg--purple tx--white')
+          h2 cluster
+    +panel(null, "img/photo-2.jpg", null)
+    +panel('bd--white bg--darkred tx--white')
+      p.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu justo ex. Praesent mollis augue sagittis eros pharetra feugiat. Phasellus dignissim est lacus. Sed nec imperdiet dolor, sit amet mattis ex. Sed sed augue eu neque tristique commodo. Mauris aliquet tortor sollicitudin nibh molestie, id egestas nisl sollicitudin. Aliquam erat volutpat. Donec quis ultrices ligula. Cras sed purus risus. Curabitur quis eros eu tortor semper eleifend. Pellentesque lorem elit, dignissim interdum massa id, malesuada rutrum ligula. Suspendisse tempor quis mauris eu facilisis. Phasellus non volutpat diam, non dapibus ligula. Ut non molestie ex, nec sagittis mi. Curabitur suscipit tellus id dolor pretium blandit. Cras tristique tristique pharetra.
+    +panel(null, "img/photo-3.jpg", null)
+    .dw-pnl.dw-pnl--fcs
+      .dw-pnl__cntnt.tx--white.bd--white.bg--darkred.tx--center
+        h1 Focus on hover
+    +panel('tx--white bg--blue')
+      h2 Some post about something
+      p.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu justo ex. Praesent mollis augue sagittis eros pharetra feugiat. Phasellus dignissim est lacus. Sed nec imperdiet dolor, sit amet mattis ex. Sed sed augue eu neque tristique commodo. Mauris aliquet tortor sollicitudin nibh molestie, id egestas nisl sollicitudin. Aliquam erat volutpat. Donec quis ultrices ligula. Cras sed purus risus. Curabitur quis eros eu tortor semper eleifend.
+    .dw-pnl.dw-pnl--pls
+      .dw-pnl__cntnt.tx--white.bd--white.bg--darkred.tx--center
+        h1 Pulse on hover
+    +panel(null, "img/photo-1.jpg", null)
+    +focusCurtain()

@@ -1,25 +1,70 @@
-$red    = #e74c3c
-$green  = #26a65b
-$purple = #8e44ad
-$blue   = #1e8bc3
-$white  = #fff
+$black   = #000
+$red     = #e74c3c
+$green   = #26a65b
+$grey    = #6c7a89
+$purple  = #8e44ad
+$blue    = #1e8bc3
+$white   = #ecf0f1
+$darkred = #cf000f
 
 $colorPallette = {
-  red   : $red
-  blue  : $blue
-  green : $green
-  purple: $purple
-  white : $white
+  black  : $black
+  red    : $red
+  blue   : $blue
+  green  : $green
+  grey   : $grey
+  purple : $purple
+  white  : $white
+  darkred: $darkred
 }
+
+*
+  box-sizing border-box
+
+@media(min-width: 768px)
+  .dw--mobile
+    display none
+
+.dw--landscape
+  display none
+  @media(min-width: 768px)
+    display block
+
+pre
+  border-radius 10px
+  padding 10px
+
+code
+  line-height 10px
+
+for level in 1 2 3 4
+  .level--{level}
+    margin-left (level * 15px)
+
+for alignment in left right center
+  .tx--{alignment}
+    text-align alignment
+
+
+body
+  font-family 'Open Sans', sans-serif
+
+h3
+  margin-top   0
 
 /**
 * Colors
 */
 for color, value in $colorPallette
+  .bd--{color}
+    border           4px solid value
+
   .bg--{color}
     background-color value
+
   .tx--{color}
     color            value
+
 
 // Import user configuration
 c = json('../../driveway-config.json', {

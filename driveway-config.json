@@ -29,26 +29,26 @@
   },
   "blocks": {
     "layout": {
-      "lbl": "ml",
+      "lbl": "dw",
       "els": {
         "focus-curtain": "fcs-crtn"
       }
     },
     "panel": {
-      "lbl": "ml-pnl",
+      "lbl": "dw-pnl",
       "els": {
         "content": "cntnt"
       }
     },
     "flip": {
-      "lbl": "ml-flp",
+      "lbl": "dw-flp",
       "els": {
         "panel": "pnl",
         "content": "cntnt"
       }
     },
     "cluster": {
-      "lbl": "ml-clstr",
+      "lbl": "dw-clstr",
       "els": {
         "segment": "sgmnt"
       }
