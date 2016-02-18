@@ -5,7 +5,7 @@ var gulp      = require('gulp'),
   plugins     = require('gulp-load-plugins')(opts.load),
   /* deploy */
   run = function() {
-    return gulp.src(src.overwatch)
+    return gulp.src(src.deploy)
       .pipe(plugins.deploy());
   };
 
