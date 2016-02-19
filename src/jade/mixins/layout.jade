@@ -1,9 +1,9 @@
-mixin layout(mod)
+mixin layout(theme, mod)
   - var layoutClass = blocks.layout.lbl
   - var modClass = ''
   if mod
     - modClass = layoutClass + '--' + mods[mod]
-  div(class= "#{layoutClass} #{modClass}")
+  div(class= "#{layoutClass} #{modClass} #{theme}")
     if block
       block
     else

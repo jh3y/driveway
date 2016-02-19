@@ -1,0 +1,34 @@
+include mixins/layout.jade
+include mixins/panel.jade
+include mixins/cluster.jade
+include mixins/focusCurtain.jade
+include mixins/flip.jade
+include mixins/segment.jade
+
+html(lang="en-us")
+head
+  meta(charset="utf-8")
+  meta(http-equiv="X-UA-Compatible", cntnt="IE=edge")
+  title driveway: pure CSS masonry layout aid
+  meta(name="viewport", cntnt="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1.0")
+  meta(name="description", cntnt= description)
+  link(href='https://fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet', type='text/css')
+  link(rel="stylesheet", href="css/#{name}.min.css")
+  link(rel="stylesheet", href="css/theme.min.css")
+body.bg--darkred
+  .dw--mobile
+    - var n = 1
+    while n < 21
+      +panel('bd--white tx--white tx--center')
+        h1= n++
+
+  .dw--desktop
+    +cluster('vertical')
+      each val in [1, 2, 0]
+        +segmentContainer('column')
+          - var f = 1
+          while f < 21
+            if (f % 3 == val)
+              +segment('bd--white tx--white tx--center')
+                h1= f
+            - f++

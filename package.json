@@ -1,6 +1,6 @@
 {
   "name": "driveway",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "pure CSS masonry layout aid",
   "scripts": {
     "update:packages": "node wipe-dependencies.js && rm -rf node_modules && npm update --save-dev && npm update --save"
@@ -22,5 +22,25 @@
     "gulp-util": "^3.0.7",
     "stylint": "^1.3.6",
     "stylint-stylish": "^1.2.0"
-  }
+  },
+  "main": "gulp-config.js",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jh3y/driveway"
+  },
+  "keywords": [
+    "masonry",
+    "css",
+    "pure",
+    "flexbox",
+    "css3",
+    "layout"
+  ],
+  "author": "jh3y <jh3y@users.noreply.github.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jh3y/driveway/issues"
+  },
+  "homepage": "https://github.com/jh3y/driveway"
 }

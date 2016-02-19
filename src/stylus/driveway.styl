@@ -7,11 +7,13 @@
 
 @import 'bem'
 
-// Import user configuration
+// import configuration
 c = json('../../driveway-config.json', {
   hash: true,
   leave-strings: true
 })
+
+// create shortcuts
 $blocks     = c.blocks
 $mods       = c.mods
 $responses  = c.responses
@@ -19,15 +21,17 @@ $aesthetics = c.aesthetics
 
 define('$clusterCollapse', unquote($responses.breakpoints[$responses.collapse]))
 
+// generate aesthetic variables based on config
 for $aesthetic, $value in $aesthetics
   if $aesthetic != 'flipSizes'
     define('$value', unquote($value))
   define('$' + $aesthetic, $value)
 
+// generate feature flags
 for $feature, $enabled in c.features
   define('$' + $feature, $enabled)
 
-// Layout block
+// layout container block
 .{$blocks.layout.lbl}
   box-sizing border-box
   column-gap 0
@@ -48,7 +52,7 @@ for $feature, $enabled in c.features
       top              0
       z-index          2
 
-
+  // generate column-count for different breakpoints as dictated by config
   for $breakpoint, $value in $responses.breakpoints
     define('$columnCount', $responses.cols[$breakpoint])
     define('$breakpointVal', unquote($value))
@@ -58,7 +62,7 @@ for $feature, $enabled in c.features
         // NOTE: space required to please linter.
         column-count $columnCount
 
-// Panel block
+// panel block
 .{$blocks.panel.lbl}
   margin 0
   padding $panelGap
@@ -70,6 +74,8 @@ for $feature, $enabled in c.features
       &:hover
         z-index  3
 
+      // use CSS3 sibling combinator syntax to show focus curtain when a focus
+      // panel is hovered over
       &:hover ~ .{$blocks.layout.lbl}__{$blocks.layout.els.focus-curtain}
         display block
 
@@ -109,8 +115,8 @@ if $flip
       .{$blocks.flip.lbl}__{$blocks.flip.els.content}
         transform rotateY(180deg)
 
-    // NOTE: Generates flip panel sizes.
-    // Important as flip panel must have a defined height in order to render
+    // NOTE: generates flip panel sizes.
+    // important as flip panel must have a defined height in order to render
     // properly.
     for $size, $value in $flipSizes
       define('$heightVal', unquote($value))
@@ -123,7 +129,7 @@ if $flip
       border-radius       $borderRadius
       height              100%
       left                0
-      overflow            hidden
+      overflow            visible
       padding             $panelPadding
       position            absolute
       top                 0
@@ -148,10 +154,8 @@ if $flip
   padding 0
 
   +mod($mods.vertical)
-    flex-direction column
-
-    @media(min-width: $clusterCollapse)
-      flex-direction row
+    @media(max-width: $clusterCollapse)
+      flex-direction column
 
   +mod($mods.horizontal)
     flex-direction column
@@ -162,10 +166,9 @@ if $flip
 
     +mod($mods.row)
       display        flex
-      flex-direction column
 
-      @media(min-width: $clusterCollapse)
-        flex-direction row
+      @media(max-width: $clusterCollapse)
+        flex-direction column
 
     +mod($mods.column)
       flex-direction column

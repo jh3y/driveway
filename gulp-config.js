@@ -48,6 +48,7 @@ module.exports = {
       markup   : 'src/jade/*.jade',
       img      : 'src/img/**/*.*',
       overwatch: env + '**/*.{html,css}',
+      deploy   : env + '**/{index.html,*.css,*.jpg}',
       styles   : [
         'src/stylus/**/theme.styl',
         'src/stylus/**/driveway.styl'

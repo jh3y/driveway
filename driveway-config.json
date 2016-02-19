@@ -3,14 +3,16 @@
     "breakpoints": {
       "sm": "430px",
       "md": "768px",
-      "lg": "1200px"
+      "lg": "992px",
+      "xl": "1500px"
     },
     "cols": {
       "sm": 1,
       "md": 2,
-      "lg": 3
+      "lg": 3,
+      "xl": 4
     },
-    "collapse": "md"
+    "collapse": "sm"
   },
   "features": {
     "focus": true,
@@ -29,26 +31,26 @@
   },
   "blocks": {
     "layout": {
-      "lbl": "ml",
+      "lbl": "dw",
       "els": {
         "focus-curtain": "fcs-crtn"
       }
     },
     "panel": {
-      "lbl": "ml-pnl",
+      "lbl": "dw-pnl",
       "els": {
         "content": "cntnt"
       }
     },
     "flip": {
-      "lbl": "ml-flp",
+      "lbl": "dw-flp",
       "els": {
         "panel": "pnl",
         "content": "cntnt"
       }
     },
     "cluster": {
-      "lbl": "ml-clstr",
+      "lbl": "dw-clstr",
       "els": {
         "segment": "sgmnt"
       }
