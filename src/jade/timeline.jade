@@ -17,22 +17,18 @@ head
   link(rel="stylesheet", href="css/theme.min.css")
 body.bg--darkred
   .dw--mobile
-    +panel('bd--grey bg--white')
-      h1 driveway
-      h3 pure CSS masonry layout aid
-    +panel('bd--white tx--white')
-      p.
-        driveway is the result of an exploration into creating pure CSS masonry layouts.
-  .dw--landscape
-    +cluster('vetical')
-      +segmentContainer('column')
-        +segment('bd--grey bg--white')
-          h1 driveway
-          h3 pure CSS masonry layout aid
-        +segment('bd--white tx--white')
-          p.
-            driveway is the result of an exploration into creating pure CSS masonry layouts.
-      +segmentContainer('column')
-        +segment(null, null, "img/photo-2.jpg")
-      +segmentContainer('column')
-        +segment(null, null, "img/photo-1.jpg")
+    - var n = 1
+    while n < 21
+      +panel('bd--white tx--white tx--center')
+        h1= n++
+
+  .dw--desktop
+    +cluster('vertical')
+      each val in [1, 2, 0]
+        +segmentContainer('column')
+          - var f = 1
+          while f < 21
+            if (f % 3 == val)
+              +segment('bd--white tx--white tx--center')
+                h1= f
+            - f++

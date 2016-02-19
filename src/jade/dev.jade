@@ -1,28 +1,28 @@
 include mixins/layout.jade
 include mixins/mixins.jade
 html(lang="en-us")
-head
-  meta(charset="utf-8")
-  meta(http-equiv="X-UA-Compatible", content="IE=edge")
-  title= name
-  meta(name="viewport", content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1.0")
-  meta(name="description", content= description)
-  link(rel="stylesheet", href="css/#{name}.min.css")
-  link(rel="stylesheet", href="css/theme.min.css")
-body
-  +layout()
-    - var n = 0
-    while n < 10
-      - var isNested = ''
-      - var nested = Math.floor(Math.random() * 2 + 1)
-      if nested === 1
-        - isNested = true
-        - var isHorizontal = Math.floor(Math.random() * 2 + 1)
-        if isHorizontal === 1
-          - flow = 'horizontal'
+  head
+    meta(charset="utf-8")
+    meta(http-equiv="X-UA-Compatible", content="IE=edge")
+    title= name
+    meta(name="viewport", content="width=device-width, initial-scale=1.0, user-scalable=0, maximum-scale=1.0")
+    meta(name="description", content= description)
+    link(rel="stylesheet", href="css/#{name}.min.css")
+    link(rel="stylesheet", href="css/theme.min.css")
+  body
+    +layout()
+      - var n = 0
+      while n < 10
+        - var isNested = ''
+        - var nested = Math.floor(Math.random() * 2 + 1)
+        if nested === 1
+          - isNested = true
+          - var isHorizontal = Math.floor(Math.random() * 2 + 1)
+          if isHorizontal === 1
+            - flow = 'horizontal'
+          else
+            - flow = 'vertical'
         else
-          - flow = 'vertical'
-      else
-        - isNested = false
-      +generatePanel(isNested, flow)
-      - n++
+          - isNested = false
+        +generatePanel(isNested, flow)
+        - n++

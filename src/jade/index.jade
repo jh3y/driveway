@@ -9,10 +9,10 @@ include mixins/stats.jade
 html(lang="en-us")
 head
   meta(charset="utf-8")
-  meta(http-equiv="X-UA-Compatible", cntnt="IE=edge")
+  meta(http-equiv="X-UA-Compatible", content="IE=edge")
   title driveway: pure CSS masonry layout aid
-  meta(name="viewport", cntnt="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1.0")
-  meta(name="description", cntnt= description)
+  meta(name="viewport", content="width=device-width, initial-scale=1, user-scalable=0, maximum-scale=1.0")
+  meta(name="description", content= description)
   link(href='https://fonts.googleapis.com/css?family=Open+Sans', rel='stylesheet', type='text/css')
   link(rel="stylesheet", href="css/#{name}.min.css")
   link(rel="stylesheet", href="css/theme.min.css")
@@ -55,7 +55,7 @@ body.bg--darkred
           h2 about
         +segment('bg--green tx--white')
           h2 clusters?
-    .dw-pnl.dw-flp(style='height: 140px;')
+    .dw-pnl.dw-flp(style='height: 200px;')
       .dw-pnl__cntnt.dw-flp__cntnt
         .dw-flp__pnl.dw-flp__pnl--frnt.tx--white.bd--white.tx--center
           h1 You can flip me round
@@ -72,11 +72,11 @@ body.bg--darkred
           h2 flowed
         +segment('bg--purple tx--white')
           h2 cluster
-    +panel(null, "img/photo-2.jpg", null)
+    +panel(null, "img/photo-3.jpg", null)
     +panel('bd--white bg--darkred tx--white')
       p.
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eu justo ex. Praesent mollis augue sagittis eros pharetra feugiat. Phasellus dignissim est lacus. Sed nec imperdiet dolor, sit amet mattis ex. Sed sed augue eu neque tristique commodo. Mauris aliquet tortor sollicitudin nibh molestie, id egestas nisl sollicitudin. Aliquam erat volutpat. Donec quis ultrices ligula. Cras sed purus risus. Curabitur quis eros eu tortor semper eleifend. Pellentesque lorem elit, dignissim interdum massa id, malesuada rutrum ligula. Suspendisse tempor quis mauris eu facilisis. Phasellus non volutpat diam, non dapibus ligula. Ut non molestie ex, nec sagittis mi. Curabitur suscipit tellus id dolor pretium blandit. Cras tristique tristique pharetra.
-    +panel(null, "img/photo-3.jpg", null)
+    +panel(null, "img/photo-2.jpg", null)
     .dw-pnl.dw-pnl--fcs
       .dw-pnl__cntnt.tx--white.bd--white.bg--darkred.tx--center
         h1 Focus on hover
