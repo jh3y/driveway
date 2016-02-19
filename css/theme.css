@@ -7,11 +7,11 @@
     display: none;
   }
 }
-.dw--landscape {
+.dw--desktop {
   display: none;
 }
 @media (min-width: 768px) {
-  .dw--landscape {
+  .dw--desktop {
     display: block;
   }
 }
@@ -20,10 +20,8 @@ pre {
   padding: 10px;
 }
 code {
+  font-size: 10px;
   line-height: 10px;
-}
-.level--1 {
-  margin-left: 15px;
 }
 .level--2 {
   margin-left: 30px;
