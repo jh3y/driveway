@@ -29,7 +29,7 @@ pure CSS masonry layout aid
 ```
 
 ## _"I just want a copy"_
-You may have come here from the blog post I wrote about pure CSS masonry layouts. If that's the case and you want the exact code I used in that post(_with vendor prefixing_), you'll be best served looking in the `dist` folder for `driveway.blog.css` and `driveway.blog.min.css`. Alternatively, use `bower` to pull in the repo.
+You may have come here from the [blog post](https://medium.com/@_jh3y/how-to-pure-css-masonry-layouts-a8ede07ba31a#.9v5aqxclp) I wrote about pure CSS masonry layouts. If that's the case and you want the exact code I used in that post(_with vendor prefixing_), you'll be best served looking in the `dist` folder for `driveway.blog.css` and `driveway.blog.min.css`. Alternatively, use `bower` to pull in the repo.
 
 ## usage
 In order to start using  `driveway`, drop the `driveway{.min}.css` file into your page and start building your markup.
