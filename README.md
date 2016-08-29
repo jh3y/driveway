@@ -20,8 +20,8 @@ pure CSS masonry layout aid
 
 ```html
 <div class="dw">
-  <div class="dw-pnl ">
-    <div class="dw-pnl__cntnt">
+  <div class="dw-panel ">
+    <div class="dw-panel__content">
       <p>Some content.</p>
     </div>
   </div>
@@ -71,29 +71,29 @@ We start our layout with a container;
 * `dw` - layout container
 
 #### layout panels
-Panels are the simplest building blocks of our layout. The content for a panel lives inside the `dw-pnl__cntnt` element.
+Panels are the simplest building blocks of our layout. The content for a panel lives inside the `dw-panel__content` element.
 
 ```html
-<div class="dw-pnl ">
-  <div class="dw-pnl__cntnt">
+<div class="dw-panel ">
+  <div class="dw-panel__content">
     <p>Panel content.</p>
   </div>
 </div>
 ```
 ##### modifiers
-* Focus `{dw-pnl--fcs}` - the focus modifier will focus a panel on hover. Ust it by adding the `dw-pnl--fcs` class to the panel. This means that a _focus curtain element_ must exist within the layout container as the __very last__ element.
+* Focus `{dw-panel--focus}` - the focus modifier will focus a panel on hover. Ust it by adding the `dw-panel--focus` class to the panel. This means that a _focus curtain element_ must exist within the layout container as the __very last__ element.
 
   ```html
-    <div class="dw__fcs-crtn"></div>
+    <div class="dw__focus-curtain"></div>
   ```
 
-* Pulse `{dw-pnl--pls}` - the pulse modifier will slightly enlarge a panel on hover. Use it by adding the `dw-pnl--pls` class to the panel.
+* Pulse `{dw-panel--pulse}` - the pulse modifier will slightly enlarge a panel on hover. Use it by adding the `dw-panel--pulse` class to the panel.
 
 ##### class reference
-* `dw-pnl` - panel
-* `dw-pnl__cntnt` - panel content
-* `dw-pnl--fcs` - panel focus modifier
-* `dw-pnl--pls` - panel pulse modifier
+* `dw-panel` - panel
+* `dw-panel__content` - panel content
+* `dw-panel--focus` - panel focus modifier
+* `dw-panel--pulse` - panel pulse modifier
 
 #### clusters and segments
 Clusters and segments are most likely the trickiest part of creating a layout with `driveway`. Clusters are used to breakup the layout flow a little more and enhance the masonry effect that's desired.
@@ -101,65 +101,65 @@ Clusters and segments are most likely the trickiest part of creating a layout wi
 A cluster is the top level element.
 
 ```html
-<div class="dw-pnl dw-clstr dw-clstr--vrt">
+<div class="dw-panel dw-cluster dw-cluster--vertical">
 </div>
 ```
 
-It's still a panel so it needs the `dw-pnl` class in addition to the `dw-clstr` class. The last class is used to declare the direction of the cluster flow. `dw-clstr--vrt` declares that are cluster should flow vertically using columns whilst `dw-clstr--hrz` would declare a horizontal flow for our cluster. This is __important__. Not adding the modifier class will result in that cluster not collapsing when desired.
+It's still a panel so it needs the `dw-panel` class in addition to the `dw-cluster` class. The last class is used to declare the direction of the cluster flow. `dw-cluster--vertical` declares that are cluster should flow vertically using columns whilst `dw-cluster--horizontal` would declare a horizontal flow for our cluster. This is __important__. Not adding the modifier class will result in that cluster not collapsing when desired.
 
 A cluster is made up of segments. This can be _tricky_.
 
 ```html
-<div class="dw-clstr__sgmnt"></div>
+<div class="dw-cluster__segment"></div>
 ```
 
 The first children of our cluster need to be either `row`s or `column`s depending on the directional flow of our cluster. Our content will then sit within these.
 
 For example;
 
-A vertically flowed cluster with two columns. The row/column modifier is important to define the internal flow of the segment. Here we use `dw-clstr__sgmnt--clmn` as we want columns. But we may use `dw-clstr__sgmnt--rw` if we desire a row.
+A vertically flowed cluster with two columns. The row/column modifier is important to define the internal flow of the segment. Here we use `dw-cluster__segment--col` as we want columns. But we may use `dw-cluster__segment--row` if we desire a row.
 
 ```html
-<div class="dw-pnl dw-clstr dw-clstr--vrt">
-  <div class="dw-clstr__sgmnt dw-clstr__sgmnt--clmn ">
+<div class="dw-panel dw-cluster dw-cluster--vertical">
+  <div class="dw-cluster__segment dw-cluster__segment--col ">
   </div>
-  <div class="dw-clstr__sgmnt dw-clstr__sgmnt--clmn ">
+  <div class="dw-cluster__segment dw-cluster__segment--col ">
   </div>
 </div>
 
 ```
 
-Once we have created our cluster children containers, we simply need to fill them with content. We fill them with panel blocks. These panel blocks must have the class `dw-clstr__sgmnt` in addition to their panel class.
+Once we have created our cluster children containers, we simply need to fill them with content. We fill them with panel blocks. These panel blocks must have the class `dw-cluster__segment` in addition to their panel class.
 
 ```html
-<div class="dw-pnl dw-clstr__sgmnt">
-  <div class="dw-pnl__cntnt">
+<div class="dw-panel dw-cluster__segment">
+  <div class="dw-panel__content">
     <p>Panel content.</p>
   </div>
 </div>
 ```
-We may want to enforce that our segments take up a certain amount of real estate inside their clusters. There are two segment modifiers to ensure that a segment takes up at least `25%` or `50%` of the real estate in the relative direction. These are applied with `dw-clstr__sgmnt--qrt` and `dw-clstr__sgmnt--hlf` respectively.
+We may want to enforce that our segments take up a certain amount of real estate inside their clusters. There are two segment modifiers to ensure that a segment takes up at least `25%` or `50%` of the real estate in the relative direction. These are applied with `dw-cluster__segment--quart` and `dw-cluster__segment--half` respectively.
 
 
 Putting it all together we get something like;
 
 ```html
-<div class="dw-pnl dw-clstr dw-clstr--vrt">
-  <div class="dw-clstr__sgmnt dw-clstr__sgmnt--clmn ">
-    <div class="dw-pnl dw-clstr__sgmnt ">
-      <div class="dw-pnl__cntnt">
+<div class="dw-panel dw-cluster dw-cluster--vertical">
+  <div class="dw-cluster__segment dw-cluster__segment--col ">
+    <div class="dw-panel dw-cluster__segment ">
+      <div class="dw-panel__content">
         <p>I am in the first column.</p>
       </div>
     </div>
   </div>
-  <div class="dw-clstr__sgmnt dw-clstr__sgmnt--clmn ">
-    <div class="dw-pnl dw-clstr__sgmnt ">
-      <div class="dw-pnl__cntnt">
+  <div class="dw-cluster__segment dw-cluster__segment--col ">
+    <div class="dw-panel dw-cluster__segment ">
+      <div class="dw-panel__content">
         <p>I am in the second column.</p>
       </div>
     </div>
-    <div class="dw-pnl dw-clstr__sgmnt ">
-      <div class="dw-pnl__cntnt">
+    <div class="dw-panel dw-cluster__segment ">
+      <div class="dw-panel__content">
         <p>So am I.</p>
       </div>
     </div>
@@ -167,22 +167,22 @@ Putting it all together we get something like;
 </div>
 ```
 ##### class reference
-* `dw-clstr` - cluster
-* `dw-clstr--vrt` - vertical flow cluster modifier
-* `dw-clstr--hrz` - horizontal flow cluster modifier
-* `dw-clstr__sgmnt` - segment
-* `dw-clstr__sgmnt--clmn` - segment column
-* `dw-clstr__smgnt--rw` - segment row
-* `dw-clstr__smgnt--qrt` - segment taking up quarter of the real estate available
-* `dw-clstr__smgnt--hlf` - segment taking up half of the real estate available
+* `dw-cluster` - cluster
+* `dw-cluster--vertical` - vertical flow cluster modifier
+* `dw-cluster--horizontal` - horizontal flow cluster modifier
+* `dw-cluster__segment` - segment
+* `dw-cluster__segment--col` - segment column
+* `dw-cluster__segment--row` - segment row
+* `dw-cluster__segment--quart` - segment taking up quarter of the real estate available
+* `dw-cluster__segment--half` - segment taking up half of the real estate available
 
 #### focus curtain
-The focus curtain is an optional element. It __is__ required though if you wish to use the `focus` modifier on any of your panels. This is because `driveway` makes use of CSS sibling combinator syntax in order to give off the desired effect. To use, ensure that an element with the class `dw__fcs-crtn` is placed as the very last element of the layout container.
+The focus curtain is an optional element. It __is__ required though if you wish to use the `focus` modifier on any of your panels. This is because `driveway` makes use of CSS sibling combinator syntax in order to give off the desired effect. To use, ensure that an element with the class `dw__focus-curtain` is placed as the very last element of the layout container.
 
 ```html
 <div class="dw">
   <!-- LAYOUT CONTENT HERE -->
-  <div class="dw__fcs-crtn"></div>
+  <div class="dw__focus-curtain"></div>
 </div>
 ```
 
@@ -190,59 +190,59 @@ The focus curtain is an optional element. It __is__ required though if you wish 
 Flip panels are layout panels that spin round on hover/tap(mobile). Due to the required markup needed for the effect, their structure is a little different to other panels.
 
 ```html
-<div class="dw-pnl dw-flp dw-flp--md">
-  <div class="dw-pnl__cntnt dw-flp__cntnt">
-    <div class="dw-flp__pnl dw-flp__pnl--frnt">
+<div class="dw-panel dw-flip dw-flip--md">
+  <div class="dw-panel__content dw-flip__content">
+    <div class="dw-flip__panel dw-flip__panel--front">
       <h1>You can flip me round</h1>
     </div>
-    <div class="dw-flp__pnl dw-flp__pnl--bck">
+    <div class="dw-flip__panel dw-flip__panel--back">
       <h1>Yeah that's right</h1>
     </div>
   </div>
 </div>
 ```
 
-A flip panel is still a panel so it still uses the `dw-pnl` class. It also uses the `dw-flp` class and an additional class to define the height of the panel.
+A flip panel is still a panel so it still uses the `dw-panel` class. It also uses the `dw-flip` class and an additional class to define the height of the panel.
 
-That last piece is __important__. In order for the flip to render and behave correctly, a defined height must be set so that each side of the panel matches up. There are size modifiers for small, medium and large. These are set in the config and are used with `dw-flp--sm`, `dw-flp--md` and `dw-flp--lg` classes respectively.
+That last piece is __important__. In order for the flip to render and behave correctly, a defined height must be set so that each side of the panel matches up. There are size modifiers for small, medium and large. These are set in the config and are used with `dw-flip--sm`, `dw-flip--md` and `dw-flip--lg` classes respectively.
 
-Our flip panel content(`dw-flp__cntnt`) has to consist of two panels(`dw-flp__pnl`). One for the front of the panel(`dw-flp__pnl--frnt`), and one for the back(`dw-flp__pnl--bck`).
+Our flip panel content(`dw-flip__content`) has to consist of two panels(`dw-flip__panel`). One for the front of the panel(`dw-flip__panel--front`), and one for the back(`dw-flip__panel--back`).
 
 ##### class reference
-* `dw-flp` - flip panel
-* `dw-flp--sm` - small flip panel
-* `dw-flp--md` - medium flip panel
-* `dw-flp--lg` - large flip panel
-* `dw-flp__cntnt` - flip panel content
-* `dw-flp__pnl` - flip panel child panel
-* `dw-flp__pnl--frnt` - flip panel front
-* `dw-flp__pnl--bck` - flip panel back
+* `dw-flip` - flip panel
+* `dw-flip--sm` - small flip panel
+* `dw-flip--md` - medium flip panel
+* `dw-flip--lg` - large flip panel
+* `dw-flip__content` - flip panel content
+* `dw-flip__panel` - flip panel child panel
+* `dw-flip__panel--front` - flip panel front
+* `dw-flip__panel--back` - flip panel back
 
 
 
 #### full class glossary
 * `dw` - layout container
-* `dw-pnl` - panel
-* `dw-pnl__cntnt` - panel content
-* `dw-pnl--fcs` - panel focus modifier
-* `dw-pnl--pls` - panel pulse modifier
-* `dw-clstr` - cluster
-* `dw-clstr--vrt` - vertical flow cluster modifier
-* `dw-clstr--hrz` - horizontal flow cluster modifier
-* `dw-clstr__sgmnt` - segment
-* `dw-clstr__sgmnt--clmn` - segment column
-* `dw-clstr__smgnt--rw` - segment row
-* `dw-clstr__smgnt--qrt` - segment taking up quarter of the real estate available
-* `dw-clstr__smgnt--hlf` - segment taking up half of the real estate available
-* `dw__fcs-crtn` - focus curtain
-* `dw-flp` - flip panel
-* `dw-flp--sm` - small flip panel
-* `dw-flp--md` - medium flip panel
-* `dw-flp--lg` - large flip panel
-* `dw-flp__cntnt` - flip panel content
-* `dw-flp__pnl` - flip panel child panel
-* `dw-flp__pnl--frnt` - flip panel front
-* `dw-flp__pnl--bck` - flip panel back
+* `dw-panel` - panel
+* `dw-panel__content` - panel content
+* `dw-panel--focus` - panel focus modifier
+* `dw-panel--pulse` - panel pulse modifier
+* `dw-cluster` - cluster
+* `dw-cluster--vertical` - vertical flow cluster modifier
+* `dw-cluster--horizontal` - horizontal flow cluster modifier
+* `dw-cluster__segment` - segment
+* `dw-cluster__segment--col` - segment column
+* `dw-cluster__segment--row` - segment row
+* `dw-cluster__segment--quart` - segment taking up quarter of the real estate available
+* `dw-cluster__segment--half` - segment taking up half of the real estate available
+* `dw__focus-curtain` - focus curtain
+* `dw-flip` - flip panel
+* `dw-flip--sm` - small flip panel
+* `dw-flip--md` - medium flip panel
+* `dw-flip--lg` - large flip panel
+* `dw-flip__content` - flip panel content
+* `dw-flip__panel` - flip panel child panel
+* `dw-flip__panel--front` - flip panel front
+* `dw-flip__panel--back` - flip panel back
 
 
 ### theming
@@ -254,8 +254,8 @@ Some areas of theming are likely to be common though such as how to display imag
 Displaying images in a masonry style is quite a common desire. It seems likely that when doing this, there will be no need to define an `img` element within our panel content as the `img` is the panel content.
 
 ```html
-<div class="dw-pnl ">
-  <img src="img/photo-2.jpg" class="dw-pnl__cntnt"/>
+<div class="dw-panel ">
+  <img src="img/photo-2.jpg" class="dw-panel__content"/>
 </div>
 ```
 
@@ -265,11 +265,11 @@ However, dropping this in the page with no `img` specific theming will break thi
 img {
   max-height: 300px;
 }
-img.dw-pnl__cntnt,
-img.dw-flp__pnl {
+img.dw-panel__content,
+img.dw-flip__panel {
   padding: 0;
 }
-img.dw-flp__pnl {
+img.dw-flip__panel {
   max-height: 100%;
 }
 
@@ -362,12 +362,12 @@ For our `mobile` version of the markup, we just need one column with our content
 
 ```html
 <div class="dw--mobile">
-  <div class="dw-pnl"></div> <!-- 1 -->
-  <div class="dw-pnl"></div> <!-- 2 -->
-  <div class="dw-pnl"></div> <!-- 3 -->
-  <div class="dw-pnl"></div> <!-- 4 -->
-  <div class="dw-pnl"></div> <!-- 5 -->
-  <div class="dw-pnl"></div> <!-- 6 -->
+  <div class="dw-panel"></div> <!-- 1 -->
+  <div class="dw-panel"></div> <!-- 2 -->
+  <div class="dw-panel"></div> <!-- 3 -->
+  <div class="dw-panel"></div> <!-- 4 -->
+  <div class="dw-panel"></div> <!-- 5 -->
+  <div class="dw-panel"></div> <!-- 6 -->
 </div>
 ```
 
@@ -375,20 +375,20 @@ For our `desktop` version we need a vertically flowed cluster with the amount of
 
 ```html
 <div class="dw--desktop">
-  <div class="dw-pnl dw-clstr">
-    <div class="dw-clstr__sgmnt dw-clstr__sgmnt--clmn ">
-      <div class="dw-pnl"></div> <!-- 1 -->
-      <div class="dw-pnl"></div> <!-- 5 -->
+  <div class="dw-panel dw-cluster">
+    <div class="dw-cluster__segment dw-cluster__segment--col ">
+      <div class="dw-panel"></div> <!-- 1 -->
+      <div class="dw-panel"></div> <!-- 5 -->
     </div>
-    <div class="dw-clstr__sgmnt dw-clstr__sgmnt--clmn ">
-      <div class="dw-pnl"></div> <!-- 2 -->
-      <div class="dw-pnl"></div> <!-- 6 -->
+    <div class="dw-cluster__segment dw-cluster__segment--col ">
+      <div class="dw-panel"></div> <!-- 2 -->
+      <div class="dw-panel"></div> <!-- 6 -->
     </div>
-    <div class="dw-clstr__sgmnt dw-clstr__sgmnt--clmn ">
-      <div class="dw-pnl"></div> <!-- 3 -->
+    <div class="dw-cluster__segment dw-cluster__segment--col ">
+      <div class="dw-panel"></div> <!-- 3 -->
     </div>
-    <div class="dw-clstr__sgmnt dw-clstr__sgmnt--clmn ">
-      <div class="dw-pnl"></div> <!-- 4 -->
+    <div class="dw-cluster__segment dw-cluster__segment--col ">
+      <div class="dw-panel"></div> <!-- 4 -->
     </div>
   </div>
 </div>

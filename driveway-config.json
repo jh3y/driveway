@@ -33,45 +33,45 @@
     "layout": {
       "lbl": "dw",
       "els": {
-        "focus-curtain": "fcs-crtn"
+        "focus-curtain": "focus-curtain"
       }
     },
     "panel": {
-      "lbl": "dw-pnl",
+      "lbl": "dw-panel",
       "els": {
-        "content": "cntnt"
+        "content": "content"
       }
     },
     "flip": {
-      "lbl": "dw-flp",
+      "lbl": "dw-flip",
       "els": {
-        "panel": "pnl",
-        "content": "cntnt"
+        "panel": "panel",
+        "content": "content"
       }
     },
     "cluster": {
-      "lbl": "dw-clstr",
+      "lbl": "dw-cluster",
       "els": {
-        "segment": "sgmnt"
+        "segment": "segment"
       }
     }
   },
   "mods": {
-    "cluster": "clstr",
-    "segment": "sgmnt",
+    "cluster": "cluster",
+    "segment": "segment",
     "small": "sm",
     "medium": "md",
     "large": "lg",
-    "vertical": "vrt",
-    "horizontal": "hrz",
-    "quarter": "qrt",
-    "half": "hlf",
-    "flip": "flp",
-    "front": "frnt",
-    "back": "bck",
-    "focus": "fcs",
-    "pulse": "pls",
-    "column": "clmn",
-    "row": "rw"
+    "vertical": "vertical",
+    "horizontal": "horizontal",
+    "quarter": "quart",
+    "half": "half",
+    "flip": "flip",
+    "front": "front",
+    "back": "back",
+    "focus": "focus",
+    "pulse": "pulse",
+    "column": "col",
+    "row": "row"
   }
 }
