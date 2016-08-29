@@ -128,10 +128,10 @@ h3 {
 img {
   max-height: 300px;
 }
-img.dw-pnl__cntnt,
-img.dw-flp__pnl {
+img.dw-panel__content,
+img.dw-flip__panel {
   padding: 0;
 }
-img.dw-flp__pnl {
+img.dw-flip__panel {
   max-height: 100%;
 }
