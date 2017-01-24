@@ -326,7 +326,7 @@ In order to do this;
 ## timeline ordering issue
 Date ordered content is something that deserves it's own mention as this seems to be the hardest issue to tackle with implementing a pure CSS masonry layout.
 
-Without server side rendering or some JavaScript intervention this isn't easy with just CSS.
+Without server side rendering or some JavaScript intervention this isn't easy/possible to maintain with just CSS. I have put together a simple implementation that uses JavaScript that can be accessed from [this](https://github.com/jh3y/driveway/issues/10) issue.
 
 Date ordered content can be done but it is when we try and make this content responsive that we hit a stumbling block as the order is lost between viewports.
 
@@ -420,4 +420,4 @@ Don't hesitate to post and issue, PR or suggestion. Alternatively, get in touch 
 ## license
 __MIT__
 
-@[jh3y](https://twitter.com/@_jh3y) 2016
+@[jh3y](https://twitter.com/@_jh3y) 2017
