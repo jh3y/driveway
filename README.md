@@ -33,9 +33,9 @@ You may have come here from the [blog post](https://medium.com/@_jh3y/how-to-pur
 
 ## browser support
 
-| Chrome  | Firefox | Safari | Opera | Edge | IE           |
-| ------------- |:-------------:| -----:| -----|-----|-----|----|
-| :smile:   | :smile:  | :smile:  | :smile: | :smile: | :sweat:* |
+| Chrome  | Firefox | Safari  | Opera   | Edge    | IE       |
+|:-------:|:-------:|:-------:|:-------:|:-------:|:--------:|
+| :smile: | :smile: | :smile: | :smile: | :smile: | :sweat:* |
 
 __*__ _`driveway` will play nice in `IE10+`_
 
